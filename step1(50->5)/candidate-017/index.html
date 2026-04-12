@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine: The Compute Console</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-scanlines"></div>
+    <div class="console">
+        <header>
+            <h1>// COMPUTE_CONSOLE_V1.0</h1>
+            <div class="token-display">
+                <span class="label">CREDITS:</span>
+                <span id="token-balance">100</span>
+                <span class="unit">TOKENS</span>
+            </div>
+        </header>
+
+        <section class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip" id="strip-1"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip" id="strip-2"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-strip" id="strip-3"></div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="generate-btn" class="btn pulse">GENERATE (10 TOKENS)</button>
+            </div>
+        </section>
+
+        <section class="terminal-container">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="title">log.txt</span>
+            </div>
+            <div id="terminal-log" class="terminal-log">
+                <p class="log-entry system">> Initializing neural weight matrix...</p>
+                <p class="log-entry system">> Loading hallucination engine...</p>
+                <p class="log-entry system">> System ready. Spend tokens to hallucinate.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 AI Overlords. All tokens are non-refundable.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

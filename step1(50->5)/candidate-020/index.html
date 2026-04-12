@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE AGI ORACLE (v0.1-alpha)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <header>
+            <h1>THE AGI ORACLE <span class="version">v0.1-alpha</span></h1>
+            <div class="stats-bar">
+                <div class="stat">COMPUTE: <span id="compute-tokens">100</span></div>
+                <div class="stat">SYNTHESIZED VALUE: <span id="synthesized-value">0</span></div>
+            </div>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels-container" id="reels">
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip" id="strip-1"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip" id="strip-2"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-strip" id="strip-3"></div>
+                </div>
+                <div class="win-line"></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-button" class="btn-prompt">PROMPT</button>
+            </div>
+        </main>
+
+        <footer class="log-container">
+            <div class="log-header">SYSTEM LOG:</div>
+            <div id="terminal-log" class="terminal-log">
+                <div class="log-entry">> Initializing AGI Oracle...</div>
+                <div class="log-entry">> Awaiting compute...</div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

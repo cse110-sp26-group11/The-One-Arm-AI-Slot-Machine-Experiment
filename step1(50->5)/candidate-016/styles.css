@@ -1,0 +1,221 @@
+:root {
+    --bg-color: #0d0d1a;
+    --text-color: #e0e0ff;
+    --accent-primary: #00f2ff;
+    --accent-secondary: #ff00ff;
+    --accent-success: #00ff8c;
+    --card-bg: #1a1a2e;
+    --border-color: #30305a;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 95%;
+    max-width: 600px;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+.subtitle {
+    color: var(--accent-secondary);
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    background: rgba(48, 48, 90, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+}
+
+.value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-success);
+}
+
+.slot-machine {
+    margin-bottom: 2rem;
+}
+
+.reels-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 2rem;
+    background: #050510;
+    padding: 15px;
+    border-radius: 10px;
+    border: 4px inset var(--border-color);
+}
+
+.reel {
+    width: 30%;
+    height: 150px;
+    overflow: hidden;
+    background: #000;
+    border-radius: 4px;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.reel-strip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    position: absolute;
+    width: 100%;
+}
+
+.symbol {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--accent-primary);
+    color: var(--bg-color);
+}
+
+.btn:hover {
+    background: #00d2ff;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.6);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.secondary {
+    background: transparent;
+    border: 2px solid var(--accent-secondary);
+    color: var(--accent-secondary);
+    font-size: 0.9rem;
+}
+
+.btn.secondary:hover {
+    background: var(--accent-secondary);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.log-container {
+    background: #050510;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.log-content {
+    height: 100px;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    color: var(--accent-success);
+    line-height: 1.4;
+}
+
+.log-content p {
+    margin-bottom: 0.25rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.7rem;
+    opacity: 0.5;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .symbol {
+        font-size: 3rem;
+    }
+}

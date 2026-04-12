@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI HYPE MACHINE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1 class="glitch-text" data-text="AI HYPE MACHINE">AI HYPE MACHINE</h1>
+        </header>
+
+        <div id="slot-machine">
+            <div id="reel-container">
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip" id="strip-1"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip" id="strip-2"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-strip" id="strip-3"></div>
+                </div>
+                <div id="win-line"></div>
+            </div>
+        </div>
+
+        <div id="dashboard">
+            <div id="stats">
+                <div class="stat-item">
+                    <label>COMPUTE BALANCE:</label>
+                    <span id="balance">500</span>
+                </div>
+                <div class="stat-item">
+                    <label>HYPE MULTIPLIER:</label>
+                    <span id="multiplier">1x</span>
+                </div>
+            </div>
+
+            <div id="controls">
+                <button id="spin-button">BURN TOKENS (10)</button>
+                <button id="vc-button">SECURE VC FUNDING</button>
+            </div>
+
+            <div id="status-log">
+                <p class="status-entry">> Initialize AI Hype Engine...</p>
+                <p class="status-entry">> Context window ready.</p>
+                <p class="status-entry">> Awaiting investment...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

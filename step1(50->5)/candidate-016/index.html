@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hype Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI HYPE MACHINE</h1>
+            <p class="subtitle">Simulating Silicon Valley Hallucinations</p>
+        </header>
+
+        <section class="dashboard">
+            <div class="stat-box">
+                <span class="label">Compute Units</span>
+                <span id="compute-units" class="value">100</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Model Status</span>
+                <span id="model-status" class="value">Awaiting training...</span>
+            </div>
+        </section>
+
+        <main class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-strip"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn" class="btn">Train Model (10 CU)</button>
+                <button id="reset-btn" class="btn secondary">Buy GPU (+50 CU)</button>
+            </div>
+        </main>
+
+        <aside class="log-container">
+            <h2>Log Stream</h2>
+            <div id="log-stream" class="log-content">
+                <p>> Booting AI Hype Machine...</p>
+                <p>> Securing VC funding...</p>
+                <p>> Ready to overpromise.</p>
+            </div>
+        </aside>
+
+        <footer>
+            <p>© 2024 Hallucinated Intelligence Corp.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
