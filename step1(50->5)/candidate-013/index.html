@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine - LLM-v0.1-Experimental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="terminal-theme">
+    <div class="crt-overlay"></div>
+    
+    <main class="machine-container">
+        <header class="terminal-header">
+            <div class="system-status">SYSTEM: ONLINE | MODEL: LLM-v0.1-EXPERIMENTAL</div>
+            <h1>THE TOKEN MINER</h1>
+        </header>
+
+        <section class="token-stats">
+            <div class="stat-box">
+                <span class="label">CONTEXT WINDOW (BALANCE)</span>
+                <span id="token-balance" class="value">1000</span>
+                <span class="unit">TOKENS</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">CURRENT BET (INFERENCE COST)</span>
+                <span id="bet-amount" class="value">10</span>
+                <span class="unit">TOKENS</span>
+            </div>
+        </section>
+
+        <section class="slot-display">
+            <div class="reel-container" id="reel-1">
+                <div class="reel-strip" id="strip-1"></div>
+            </div>
+            <div class="reel-container" id="reel-2">
+                <div class="reel-strip" id="strip-2"></div>
+            </div>
+            <div class="reel-container" id="reel-3">
+                <div class="reel-strip" id="strip-3"></div>
+            </div>
+        </section>
+
+        <section class="controls">
+            <div class="bet-slider-container">
+                <input type="range" id="bet-slider" min="1" max="100" value="10" step="1">
+            </div>
+            <button id="spin-button" class="spin-btn">RUN INFERENCE</button>
+        </section>
+
+        <section class="chat-log-container">
+            <div class="log-header">CHAT HISTORY (DEBUG LOG)</div>
+            <div id="chat-log" class="chat-log">
+                <div class="log-entry">Welcome, Developer. Spend tokens to generate new possibilities.</div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
