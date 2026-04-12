@@ -5,10 +5,10 @@
 
 ## Experiment Overview
 
-This is a controlled experiment measuring the consistency and variation in outputs from **OpenAI's GPT-5.4** when given identical prompts under clean session conditions.
+This is a controlled experiment measuring the consistency and variation in outputs from **Generative AI** when given identical prompts under clean session conditions.
 
 **Primary Research Question:**  
-How much variation, drift, and quality spread do we see when the same prompt is run 50 times in clean sessions, and what does a tightly constrained refinement process buy us?
+How much variation, drift, and quality spread do we see when the same prompt is run 50 times in clean sessions, and what does a tightly constrained refinement process by us?
 
 ---
 
@@ -28,7 +28,7 @@ How much variation, drift, and quality spread do we see when the same prompt is 
 ### Team Information
 - **Team Name:** Potatoes
 - **Team Members:** Yuting Duan, Arav Vyawahare, Kelly Dempster, Diana Kostina, Siddharth Sivalanka, Bekzhan Yessengeldy, Arjun Singh, Ethan Pham, Ray Wang, Ryan Lee, Zihan Zhang, Tangjian Shi
-- **Work Division:** 12 people total; pairs of 2-3 people, 5 runs per person (10 runs per pair)
+- **Work Division:** 12 people total; pairs of 2-3 people, 10 runs per person
 
 ---
 
@@ -130,7 +130,7 @@ repo-root/
 - [ ] Model version is documented as `gemini-3-flash-preview`
 - [ ] RUBRIC.md is finalized
 - [ ] Repository structure is set up
-- [ ] Team divided into pairs, each doing 5 runs
+- [ ] Team divided into pairs, each doing 5-10 runs
 - [ ] First test run completed and captured
 - [ ] Ready to begin Phase 2
 
