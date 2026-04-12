@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine | High-Volatility Inference</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    <div class="terminal-container">
+        <header>
+            <div class="status-indicator">● LIVE INFERENCE</div>
+            <div class="model-info">MODEL: AGI-PRO-420-TURBO</div>
+        </header>
+
+        <main class="reels-container" id="reels-container">
+            <div class="reel" id="reel1"><div class="reel-strip">🤖</div></div>
+            <div class="reel" id="reel2"><div class="reel-strip">⚡</div></div>
+            <div class="reel" id="reel3"><div class="reel-strip">🧠</div></div>
+        </main>
+
+        <section class="log-panel">
+            <div class="log-title">INF_LOG ></div>
+            <div class="log-output" id="log-output">
+                <div>SYSTEM_BOOT: GPU Cluster online.</div>
+                <div>READY_FOR_PROMPT: Awaiting token injection...</div>
+            </div>
+        </section>
+
+        <footer class="controls">
+            <div class="stats">
+                <div class="stat-box">
+                    <label>COMPUTE_CREDITS</label>
+                    <span id="token-balance">1000</span>
+                </div>
+                <div class="stat-box">
+                    <label>CONTEXT_WINDOW</label>
+                    <input type="number" id="bet-input" value="10" min="1" max="100">
+                </div>
+                <div class="stat-box">
+                    <label>TEMPERATURE</label>
+                    <input type="range" id="temp-slider" min="0.1" max="2.0" step="0.1" value="0.7">
+                    <span id="temp-display">0.7</span>
+                </div>
+            </div>
+            <button id="spin-btn">RUN_INFERENCE</button>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
