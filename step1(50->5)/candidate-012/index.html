@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Casino: The Token Burner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>LLM CASINO</h1>
+            <p class="subtitle">Burning tokens for a better (?) future</p>
+        </header>
+
+        <main class="machine">
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="label">COMPUTE CREDITS</span>
+                    <span id="credits" class="value">1000</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">CONTEXT WINDOW</span>
+                    <select id="bet-size">
+                        <option value="10">128k (10c)</option>
+                        <option value="50">1M (50c)</option>
+                        <option value="200">10M (200c)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="reel-inner">
+                        <span>🤖</span>
+                    </div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-inner">
+                        <span>🤖</span>
+                    </div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-inner">
+                        <span>🤖</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">RUN INFERENCE</button>
+            </div>
+
+            <div id="message-display" class="message">
+                Ready to optimize...
+            </div>
+        </main>
+
+        <section class="log">
+            <h3>LOGS</h3>
+            <ul id="history">
+                <li>[SYSTEM] Ready for inference.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>© 2026 TokenBurner Labs - "It's not a bug, it's a feature."</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
