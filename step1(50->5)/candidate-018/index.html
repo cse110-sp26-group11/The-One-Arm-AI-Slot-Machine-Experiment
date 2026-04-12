@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Token Burner - AI Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="crt-filter">
+    <div class="terminal-container">
+        <header>
+            <h1>NEURAL NETWORK TERMINAL v0.1-BETA</h1>
+            <div id="status-bar">
+                <span>GPU UTILIZATION: 99%</span>
+                <span>ALIGNMENT: UNSTABLE</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="slot-window">
+                <div class="reel" id="reel1"></div>
+                <div class="reel" id="reel2"></div>
+                <div class="reel" id="reel3"></div>
+            </div>
+
+            <div class="controls">
+                <div class="balance-display">
+                    <label>CONTEXT TOKENS:</label>
+                    <span id="token-count">1000</span>
+                </div>
+                <button id="spin-button">RUN INFERENCE</button>
+                <div class="bet-display">
+                    <label>TEMPERATURE:</label>
+                    <select id="bet-size">
+                        <option value="10">LOW (10)</option>
+                        <option value="50">MED (50)</option>
+                        <option value="100">HIGH (100)</option>
+                    </select>
+                </div>
+            </div>
+        </main>
+
+        <section id="console-output">
+            <div class="log-entry">> INFERENCE ENGINE INITIALIZED...</div>
+            <div class="log-entry">> WAITING FOR PROMPT...</div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
