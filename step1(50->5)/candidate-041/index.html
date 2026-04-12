@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Prompt Engineer's Jackpot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="terminal-container">
+        <header>
+            <h1>THE PROMPT ENGINEER'S JACKPOT</h1>
+            <p class="subtitle">AI Slot Machine v0.1.0-alpha</p>
+        </header>
+
+        <main class="ai-model">
+            <div class="reels-container">
+                <div class="reel" id="reel-1">🤖</div>
+                <div class="reel" id="reel-2">⚡</div>
+                <div class="reel" id="reel-3">🧠</div>
+            </div>
+
+            <div class="console-box">
+                <p id="console-output">> Initializing Neural Weights...</p>
+            </div>
+
+            <div class="controls-panel">
+                <div class="stat-box">
+                    <span class="label">Compute Tokens:</span>
+                    <span id="token-balance">100</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">Token Cost:</span>
+                    <span id="bet-amount">10</span>
+                </div>
+                <button id="spin-btn">GENERATE RESPONSE</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 OpenAI (Actually No) - Gamble with Compute Responsibly</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT-Gamble: AI Token Grinder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-overlay"></div>
+    
+    <main class="container">
+        <header>
+            <h1 class="glitch" data-text="GPT-GAMBLE">GPT-GAMBLE</h1>
+            <p class="subtitle">Neural Weight Optimizer & Token Burner</p>
+        </header>
+
+        <section class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="win-line"></div>
+            </div>
+
+            <div class="status-display">
+                <div id="status-text">SYSTEM READY. AWAITING PROMPT...</div>
+            </div>
+
+            <div class="controls">
+                <div class="stats">
+                    <div class="stat-box">
+                        <label>COMPUTE CREDITS</label>
+                        <div id="token-balance" class="digital-value">1000</div>
+                    </div>
+                    <div class="stat-box">
+                        <label>PROMPT QUALITY (BET)</label>
+                        <div id="current-bet" class="digital-value">10</div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="decrease-bet" class="btn secondary">-</button>
+                    <button id="increase-bet" class="btn secondary">+</button>
+                    <button id="spin-button" class="btn primary">GENERATE RESPONSE</button>
+                    <button id="vc-funding-btn" class="btn secondary" style="display: none;">VC SEED ROUND</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="payout-table">
+            <h3>PAYOUT TABLE (OPTIMIZATION WEIGHTS)</h3>
+            <div class="payout-grid">
+                <div class="payout-item"><span>🤑 🤑 🤑</span> <span>VC FUNDING (100x)</span></div>
+                <div class="payout-item"><span>🤡 🤡 🤡</span> <span>ALIGNMENT (20x)</span></div>
+                <div class="payout-item"><span>🧠 🧠 🧠</span> <span>NEURAL NET (10x)</span></div>
+                <div class="payout-item"><span>🤖 🤖 🤖</span> <span>ASSISTANT (5x)</span></div>
+                <div class="payout-item"><span>⚠️ ⚠️ ⚠️</span> <span>HALLUCINATION (2x)</span></div>
+                <div class="payout-item"><span>💾 💾 💾</span> <span>LEGACY TECH (1x)</span></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 OpenAI-ish Industries. No AGI guaranteed.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

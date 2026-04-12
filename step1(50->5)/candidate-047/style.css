@@ -1,0 +1,170 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #39ff14;
+    --accent-color: #00ff00;
+    --secondary-color: #003300;
+    --error-color: #ff3131;
+    --glow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* CRT Scanline Effect */
+.crt::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    border: 2px solid var(--text-color);
+    padding: 2rem;
+    box-shadow: var(--glow);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: var(--glow);
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+/* Terminal Display */
+.terminal {
+    background: var(--secondary-color);
+    border: 1px solid var(--text-color);
+    padding: 10px;
+    height: 60px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    text-align: left;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+#log-content {
+    animation: typing 0.5s steps(40, end);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Slot Machine */
+.reels {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    gap: 10px;
+}
+
+.reel {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background: #000;
+    box-shadow: inset 0 0 10px var(--text-color);
+}
+
+.reel.spinning {
+    animation: blur 0.1s infinite;
+}
+
+@keyframes blur {
+    0% { filter: blur(0px); transform: translateY(0); }
+    50% { filter: blur(10px); transform: translateY(5px); }
+    100% { filter: blur(0px); transform: translateY(0); }
+}
+
+/* Stats */
+.stats-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    border-top: 1px dashed var(--text-color);
+    padding-top: 1rem;
+}
+
+.label {
+    font-size: 0.8rem;
+}
+
+.value {
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: block;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn {
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    box-shadow: var(--glow);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.primary {
+    font-size: 1.2rem;
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: 0.7rem;
+    opacity: 0.6;
+}

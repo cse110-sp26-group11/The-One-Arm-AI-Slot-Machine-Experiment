@@ -1,0 +1,264 @@
+:root {
+    --bg-color: #0d0d0d;
+    --neon-green: #00ff41;
+    --neon-purple: #9d00ff;
+    --neon-pink: #ff00ea;
+    --text-color: #e0e0e0;
+    --border-color: #333;
+    --accent-bg: #1a1a1a;
+    --shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    color: var(--neon-green);
+    text-shadow: 0 0 10px var(--neon-green);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--neon-purple);
+    margin-bottom: 30px;
+}
+
+/* Machine Layout */
+.machine {
+    background: var(--accent-bg);
+    border: 4px solid var(--border-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.machine::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 5px;
+    background: var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background: #000;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-size: 0.7rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+/* Slot Window */
+.slot-window {
+    background: #000;
+    border: 3px solid var(--border-color);
+    height: 180px;
+    position: relative;
+    margin-bottom: 25px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reels {
+    display: flex;
+    gap: 15px;
+    height: 140px;
+}
+
+.reel {
+    width: 100px;
+    height: 140px;
+    background: #111;
+    border: 2px solid #222;
+    overflow: hidden;
+    position: relative;
+}
+
+.reel-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.1s ease-out;
+}
+
+.symbol {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+/* Scanline Effect */
+.scanline {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.06),
+        rgba(0, 255, 0, 0.02),
+        rgba(0, 0, 255, 0.06)
+    );
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Status Monitor */
+.status-monitor {
+    background: #000;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 25px;
+    text-align: left;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#status-text {
+    font-size: 0.85rem;
+    color: var(--neon-green);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.btn.primary {
+    background: var(--neon-green);
+    color: #000;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 0 #008f25;
+}
+
+.btn.primary:hover:not(:disabled) {
+    background: #00ff73;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #008f25;
+}
+
+.btn.primary:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 #008f25;
+}
+
+.btn.primary:disabled {
+    background: #333;
+    color: #666;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.bet-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn.secondary {
+    background: #333;
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.bet-label {
+    font-size: 1rem;
+    color: var(--neon-purple);
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.7rem;
+    color: #555;
+}
+
+/* Animations */
+@keyframes spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+.spinning {
+    animation: spin 0.1s linear infinite;
+}
+
+.highlight {
+    animation: pulse 0.5s ease infinite alternate;
+}
+
+@keyframes pulse {
+    from { color: var(--neon-pink); text-shadow: 0 0 5px var(--neon-pink); }
+    to { color: #fff; text-shadow: 0 0 20px var(--neon-pink); }
+}

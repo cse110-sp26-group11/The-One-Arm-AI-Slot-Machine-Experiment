@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stochastic Parrot - The One-Arm AI Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="crt">
+    <div class="container">
+        <header>
+            <h1>STOCHASTIC PARROT v0.1-alpha</h1>
+            <p class="subtitle">AUTONOMOUS REWARD SYNTHESIZER</p>
+        </header>
+
+        <main>
+            <div id="terminal-display" class="terminal">
+                <div id="log-content">System initialized. Ready for inference...</div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reels">
+                    <div id="reel1" class="reel">🤖</div>
+                    <div id="reel2" class="reel">🤖</div>
+                    <div id="reel3" class="reel">🤖</div>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <div class="stat">
+                    <span class="label">INFERENCE TOKENS:</span>
+                    <span id="token-count" class="value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="label">HYPERPARAMETER (BET):</span>
+                    <span id="bet-amount" class="value">5</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="adjust-bet" class="btn secondary">ADJUST HYPERPARAMETERS</button>
+                <button id="spin-btn" class="btn primary">TRAIN MODEL (SPIN)</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Stochastic Parrots Inc. - "We overfit, you pay."</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

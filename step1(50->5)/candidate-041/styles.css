@@ -1,0 +1,158 @@
+:root {
+    --bg-color: #0d0d0d;
+    --text-color: #00ff41;
+    --accent-color: #ff00ff;
+    --border-color: #333;
+    --panel-bg: #1a1a1a;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.terminal-container {
+    width: 100%;
+    max-width: 600px;
+    border: 2px solid var(--text-color);
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    background: var(--panel-bg);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 0.5rem;
+}
+
+.ai-model {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.reels-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 1rem;
+    background: #000;
+    border: 1px solid var(--border-color);
+}
+
+.reel {
+    width: 80px;
+    height: 80px;
+    background: #111;
+    border: 2px solid var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    transition: transform 0.1s ease-in-out;
+}
+
+.reel.spinning {
+    animation: pulse 0.1s infinite alternate;
+    opacity: 0.5;
+    filter: blur(2px);
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+.console-box {
+    background: #000;
+    border: 1px solid var(--text-color);
+    padding: 1rem;
+    min-height: 80px;
+}
+
+#console-output {
+    font-size: 0.9rem;
+}
+
+.controls-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+}
+
+.label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+#token-balance, #bet-amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+#spin-btn {
+    grid-column: span 2;
+    padding: 1rem;
+    background: var(--text-color);
+    color: #000;
+    border: none;
+    font-family: var(--font-mono);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#spin-btn:hover {
+    background: #00cc33;
+    box-shadow: 0 0 15px var(--text-color);
+}
+
+#spin-btn:disabled {
+    background: #333;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.6rem;
+    opacity: 0.5;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hype Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>NEURAL ENGINE v0.1-alpha</h1>
+            <p class="subtitle">Burning Venture Capital since 2023</p>
+        </header>
+
+        <div class="machine-wrapper">
+            <div class="slot-container">
+                <div class="reel" id="reel1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="overlay"></div>
+            </div>
+
+            <div class="controls">
+                <div class="stats">
+                    <div class="stat-box">
+                        <label>Compute Tokens</label>
+                        <div id="token-count">100</div>
+                    </div>
+                </div>
+                <button id="prompt-btn">RUN PROMPT</button>
+                <button id="reset-btn" style="display: none;">REFUND VENTURE CAPITAL</button>
+            </div>
+        </div>
+
+        <div class="status-panel">
+            <h3>LOGS</h3>
+            <div id="status-log">Ready for inference...</div>
+        </div>
+
+        <footer>
+            <p>DISCLAIMER: This model is for research purposes only. Results may be hallucinated.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

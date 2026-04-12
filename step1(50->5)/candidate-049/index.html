@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Compute Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI TOKEN SLOT MACHINE</h1>
+            <p class="subtitle">Decentralized Inference Engine v0.1</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-strip"></div>
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <div class="stats">
+                    <div class="stat-box">
+                        <label>COMPUTE TOKENS</label>
+                        <div id="token-count">1000</div>
+                    </div>
+                    <div class="stat-box">
+                        <label>INFERENCE COST</label>
+                        <div id="inference-cost">50</div>
+                    </div>
+                </div>
+
+                <div class="message-log">
+                    <div id="status-message">Ready to synthesize...</div>
+                </div>
+
+                <div class="controls">
+                    <button id="spin-btn">RUN INFERENCE</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Stochastic Parrots Inc. | Model: GPT-Zero-Cool</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

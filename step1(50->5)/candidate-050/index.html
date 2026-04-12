@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Hallucinator | Compute Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>THE AI HALLUCINATOR</h1>
+            <p class="subtitle">Tokenize your future. Spend your compute.</p>
+        </header>
+
+        <main class="machine">
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="label">AVAILABLE H100s</span>
+                    <span id="token-count" class="value">100</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">CURRENT BET</span>
+                    <span id="current-bet" class="value">5</span>
+                </div>
+            </div>
+
+            <div class="slot-window">
+                <div class="reels">
+                    <div class="reel" id="reel-1">
+                        <div class="reel-inner">
+                            <div class="symbol">🤖</div>
+                        </div>
+                    </div>
+                    <div class="reel" id="reel-2">
+                        <div class="reel-inner">
+                            <div class="symbol">🤖</div>
+                        </div>
+                    </div>
+                    <div class="reel" id="reel-3">
+                        <div class="reel-inner">
+                            <div class="symbol">🤖</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scanline"></div>
+            </div>
+
+            <div class="status-monitor">
+                <div id="status-text">> SYSTEM IDLE. READY FOR INFERENCE.</div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn" class="btn primary">PULL LEVER (INFER)</button>
+                <div class="bet-controls">
+                    <button id="bet-down" class="btn secondary">-</button>
+                    <span class="bet-label">BET</span>
+                    <button id="bet-up" class="btn secondary">+</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Risk Warning: Past performance is not indicative of future AGI.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

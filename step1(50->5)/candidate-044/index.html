@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE GREAT TOKEN HALLUCINATORY ENGINE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>THE GREAT TOKEN HALLUCINATORY ENGINE</h1>
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="label">CONTEXT WINDOW:</span>
+                    <span id="token-count" class="value">1000</span>
+                    <span class="unit">tokens</span>
+                </div>
+                <div class="stat">
+                    <span class="label">CREDITS:</span>
+                    <span id="credit-count" class="value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel" id="reel-1">
+                        <div class="symbols"></div>
+                    </div>
+                    <div class="reel" id="reel-2">
+                        <div class="symbols"></div>
+                    </div>
+                    <div class="reel" id="reel-3">
+                        <div class="symbols"></div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button id="infer-button">INFER</button>
+                    <p class="cost-info">Cost: 50 tokens per inference</p>
+                </div>
+            </div>
+
+            <aside class="terminal-sidebar">
+                <div class="terminal-header">LIVE INFERENCE LOG</div>
+                <div id="log-content" class="log-content">
+                    <div class="log-entry">System initialized. Awaiting user input...</div>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 AI Grifter Inc. | "If it's not hallucinating, it's not working."</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
