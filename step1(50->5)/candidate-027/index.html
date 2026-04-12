@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Fortune Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <header>
+            <h1>[LLM_FORTUNE_GENERATOR_v1.0]</h1>
+            <p>Burn compute. Generate alpha.</p>
+        </header>
+
+        <main>
+            <div id="stats">
+                <div class="stat-box">
+                    <span class="label">COMPUTE_TOKENS:</span>
+                    <span id="token-count" class="value">100</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">INFERENCE_COST:</span>
+                    <span class="value">10</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reel-container">
+                    <div class="reel" id="reel-0">
+                        <div class="reel-strip"></div>
+                    </div>
+                    <div class="reel" id="reel-1">
+                        <div class="reel-strip"></div>
+                    </div>
+                    <div class="reel" id="reel-2">
+                        <div class="reel-strip"></div>
+                    </div>
+                </div>
+                <div class="win-indicator"></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">RUN_INFERENCE</button>
+                <button id="reset-btn" class="hidden">REFINANCE_VC</button>
+            </div>
+
+            <div class="system-output">
+                <h3>SYSTEM_LOG:</h3>
+                <div id="status-log">Initializing local weights... Ready.</div>
+            </div>
+        </main>
+
+        <aside class="paytable">
+            <h3>PAYTABLE:</h3>
+            <ul>
+                <li>🧠 🧠 🧠 -> 1000 (AGI Found)</li>
+                <li>🤖 🤖 🤖 -> 500 (Stable Weights)</li>
+                <li>⚡️ ⚡️ ⚡️ -> 200 (H100 Rented)</li>
+                <li>💵 💵 💵 -> 100 (Series A)</li>
+                <li>🫠 🫠 🫠 -> 20 (Hallucination Win!)</li>
+            </ul>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

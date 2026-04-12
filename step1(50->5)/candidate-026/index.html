@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The One-Arm AI Slot Machine Experiment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>THE ONE-ARM AI EXPERIMENT</h1>
+            <p id="tagline">Gamble your compute, win worthless tokens.</p>
+        </header>
+
+        <main>
+            <div id="status-panel">
+                <div class="stat">
+                    <span class="label">COMPUTE:</span>
+                    <span id="compute-balance" class="value">100.00</span>
+                </div>
+                <div class="stat">
+                    <span class="label">TOKENS:</span>
+                    <span id="token-balance" class="value">0</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reels">
+                    <div class="reel" id="reel-1">
+                        <div class="reel-content">🤖</div>
+                    </div>
+                    <div class="reel" id="reel-2">
+                        <div class="reel-content">🤖</div>
+                    </div>
+                    <div class="reel" id="reel-3">
+                        <div class="reel-content">🤖</div>
+                    </div>
+                </div>
+
+                <div class="lever-container">
+                    <button id="spin-button">OPTIMIZE</button>
+                </div>
+            </div>
+
+            <div id="message-display">
+                <p id="ai-message">System Idle. Awaiting training data.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Overlord Intelligence Inc. No humans were harmed in this simulation.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

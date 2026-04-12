@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGI Gambler - Model Collapse Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <header>
+            <h1>AGI STATUS: <span id="status" class="unstable">UNSTABLE</span></h1>
+            <p class="subtitle">Simulating a trillion-dollar industry, one spin at a time.</p>
+        </header>
+
+        <section class="dashboard">
+            <div class="stat-box">
+                <label>COMPUTE CREDITS</label>
+                <div id="compute-credits" class="value">100</div>
+            </div>
+            <div class="stat-box">
+                <label>HALLUCINATION SCORE</label>
+                <div id="hallucination-score" class="value">0</div>
+            </div>
+        </section>
+
+        <main class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel-1">🤖</div>
+                <div class="reel" id="reel-2">🚀</div>
+                <div class="reel" id="reel-3">🍕</div>
+            </div>
+            
+            <div class="controls">
+                <div class="bet-control">
+                    <label for="hype-injection">INJECT HYPE (BET):</label>
+                    <input type="number" id="hype-injection" value="5" min="1" max="100">
+                </div>
+                <button id="train-button">TRAIN MODEL (SPIN)</button>
+            </div>
+        </main>
+
+        <footer class="ticker">
+            <div class="ticker-content" id="log-ticker">
+                > Initializing weights... > Buying more NVIDIA stock... > Scrapping Reddit for data...
+            </div>
+        </footer>
+
+        <div id="seed-funding-container" class="hidden">
+            <button id="seed-funding-button">REQUEST SEED FUNDING (RESET)</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

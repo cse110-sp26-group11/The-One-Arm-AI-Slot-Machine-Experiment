@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenGpt-5 / Hallucinizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">TokenGpt-5 <span class="badge">PRO</span></span>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Context Window</span>
+                    <span class="stat-value" id="token-balance">1,000</span> <span class="stat-unit">tokens</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="slot-machine-wrapper">
+                <div class="machine-border">
+                    <div class="reels-container" id="reels">
+                        <div class="reel" id="reel-1">
+                            <div class="reel-strip">
+                                <!-- Symbols will be injected via JS -->
+                            </div>
+                        </div>
+                        <div class="reel" id="reel-2">
+                            <div class="reel-strip">
+                                <!-- Symbols will be injected via JS -->
+                            </div>
+                        </div>
+                        <div class="reel" id="reel-3">
+                            <div class="reel-strip">
+                                <!-- Symbols will be injected via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="status-panel">
+                    <p id="status-text">Ready to hallucinate...</p>
+                </div>
+
+                <div class="controls">
+                    <button id="generate-btn" class="primary-btn">
+                        <span class="btn-text">GENERATE</span>
+                        <span class="btn-cost">(-50 tokens)</span>
+                    </button>
+                    <button id="funding-btn" class="secondary-btn hidden">
+                        Request more VC funding
+                    </button>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="card">
+                    <h3>Model Settings</h3>
+                    <div class="setting">
+                        <label>Temperature</label>
+                        <input type="range" disabled value="0.7">
+                    </div>
+                    <div class="setting">
+                        <label>Top-P</label>
+                        <input type="range" disabled value="0.9">
+                    </div>
+                    <p class="small-text text-muted">Upgrade to ENTERPRISE for advanced controls.</p>
+                </div>
+                <div class="card">
+                    <h3>Model Performance</h3>
+                    <div class="metric">
+                        <span class="label">Accuracy</span>
+                        <div class="progress-bar"><div class="progress" style="width: 45%;"></div></div>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Hallucination Rate</span>
+                        <div class="progress-bar danger"><div class="progress" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 HallucinateAI Inc. | Not a real AI. Definitely not gambling.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

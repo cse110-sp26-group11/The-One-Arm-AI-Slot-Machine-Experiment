@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Sink - Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-overlay"></div>
+    <div class="app-container">
+        <header>
+            <h1 class="glitch" data-text="AI TOKEN SINK">AI TOKEN SINK</h1>
+            <p class="subtitle">Burn Compute. Maximize Hallucinations.</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="win-line"></div>
+            </div>
+
+            <div class="controls">
+                <div class="stats">
+                    <div class="stat-box">
+                        <label>COMPUTE CREDITS</label>
+                        <span id="token-count">500</span>
+                    </div>
+                    <div class="stat-box">
+                        <label>GPU TEMP</label>
+                        <span id="gpu-temp">42°C</span>
+                    </div>
+                </div>
+                
+                <button id="spin-button" class="neon-button">GENERATE OUTPUT (10 Credits)</button>
+            </div>
+        </main>
+
+        <footer class="ai-console">
+            <div class="console-header">SYSTEM LOG [STDOUT]</div>
+            <div id="status-log" class="console-body">
+                <p>> Initializing AGI... [FAIL]</p>
+                <p>> Falling back to stochastic parrot mode...</p>
+                <p>> Ready to sink tokens.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

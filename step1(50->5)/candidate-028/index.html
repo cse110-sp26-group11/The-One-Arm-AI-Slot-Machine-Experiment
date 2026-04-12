@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The One-Arm AI Slot Machine Experiment</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cabinet">
+        <header>
+            <h1 class="neon-text">THE GREAT AI DELUSION</h1>
+            <p class="subtitle">A One-Arm Neural Net Experiment</p>
+        </header>
+
+        <div class="display-panel">
+            <div class="token-counter">
+                <span class="label">COMPUTE TOKENS:</span>
+                <span id="balance">100</span>
+            </div>
+            <div id="status-console" class="status-console">
+                > INSERT COIN TO INITIALIZE TRAINING
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-4">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-5">
+                    <div class="reel-strip"></div>
+                </div>
+            </div>
+            <div class="payline"></div>
+        </div>
+
+        <div class="controls">
+            <button id="insert-coin-btn" class="btn secondary">INSERT COIN (+50)</button>
+            <button id="spin-btn" class="btn primary">TRAIN (SPIN)</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 AI-Slot-Corp. No actual AGI was harmed in the making of this experiment.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

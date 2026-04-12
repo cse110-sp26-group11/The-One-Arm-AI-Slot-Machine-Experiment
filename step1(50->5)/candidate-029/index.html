@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE TOKEN BURNER - AI Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-overlay"></div>
+    
+    <div class="app-container">
+        <header>
+            <h1 class="glitch" data-text="THE TOKEN BURNER">THE TOKEN BURNER</h1>
+            <p class="subtitle">Burn VC Capital. Generate Noise.</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="label">AVAILABLE COMPUTE:</span>
+                <span id="balance" class="value">1000.00</span>
+                <span class="unit">TKN</span>
+            </div>
+            <div class="stat-item">
+                <span class="label">PROMPT COST:</span>
+                <span id="bet" class="value">10.00</span>
+                <span class="unit">TKN</span>
+            </div>
+        </div>
+
+        <div class="machine-container">
+            <div class="reels-container">
+                <div class="reel" id="reel-0">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="win-line"></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn" class="btn-primary">GENERATE INFERENCE</button>
+            </div>
+        </div>
+
+        <div class="console-container">
+            <div class="console-header">SYSTEM_LOGS >_</div>
+            <div id="console-output" class="console-content">
+                <p>> Initializing neural weights...</p>
+                <p>> Funding round secured: $100M</p>
+                <p>> Ready for inference.</p>
+            </div>
+        </div>
+
+        <div class="paytable">
+            <h3>VALUATION METRICS</h3>
+            <div class="paytable-grid">
+                <div class="pay-item"><span>🧠 AGI</span> <span>50x</span></div>
+                <div class="pay-item"><span>🌀 GPU</span> <span>10x</span></div>
+                <div class="pay-item"><span>🤖 LLM</span> <span>5x</span></div>
+                <div class="pay-item"><span>📉 PIVOT</span> <span>2x</span></div>
+                <div class="pay-item"><span>🌫️ NOISE</span> <span>0x</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
