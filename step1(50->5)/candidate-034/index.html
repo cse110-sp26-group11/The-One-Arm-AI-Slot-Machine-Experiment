@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Grinder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="status-bar">
+                <span class="label">MODEL:</span> <span class="value">GPT-TRASH-4o</span>
+                <span class="spacer"></span>
+                <span class="label">LATENCY:</span> <span id="latency" class="value">42ms</span>
+            </div>
+            <h1>AI TOKEN GRINDER</h1>
+            <p class="subtitle">Burning VC funding into synthetic value.</p>
+        </header>
+
+        <main>
+            <div class="stats-panel">
+                <div class="stat">
+                    <span class="label">VC FUNDING</span>
+                    <span id="balance" class="value">10,000</span>
+                    <span class="unit">TOKENS</span>
+                </div>
+                <div class="stat">
+                    <span class="label">BURN RATE</span>
+                    <span id="burn-rate" class="value">50</span>
+                    <span class="unit">TOKENS/SPIN</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reel-container" id="reel-0">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel-container" id="reel-1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel-container" id="reel-2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="win-line"></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">GENERATE OUTPUT</button>
+                <div class="secondary-btns">
+                    <button id="pivot-btn">PIVOT TO AI</button>
+                    <button id="seed-btn" class="hidden">BEG FOR SEED ROUND</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div id="ai-log" class="ai-log">
+                <div class="log-entry">> Initializing neural weights...</div>
+                <div class="log-entry">> Scraping unlicensed data...</div>
+                <div class="log-entry">> Ready for inference.</div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

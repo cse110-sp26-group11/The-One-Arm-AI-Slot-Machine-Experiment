@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>STOCHASTIC SLOT MACHINE</h1>
+            <p class="subtitle">Burn Compute. Earn Tokens. Achieve AGI?</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="stat-box">
+                <span class="label">Compute Tokens</span>
+                <span id="balance" class="value">1000</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Last Payout</span>
+                <span id="last-win" class="value">0</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="reel-strip" id="strip1">
+                        <!-- Symbols injected by JS -->
+                        <div class="symbol">🤖</div>
+                    </div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-strip" id="strip2">
+                        <div class="symbol">🧠</div>
+                    </div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-strip" id="strip3">
+                        <div class="symbol">⚡</div>
+                    </div>
+                </div>
+            </div>
+            <div class="payline"></div>
+        </div>
+
+        <div class="controls">
+            <div class="bet-selector">
+                <label for="bet">Training Intensity:</label>
+                <select id="bet">
+                    <option value="10">Few-Shot (10)</option>
+                    <option value="50">Fine-Tuning (50)</option>
+                    <option value="100">Full Pre-train (100)</option>
+                </select>
+            </div>
+            <button id="spin-btn">GENERATE RESPONSE</button>
+            <button id="reset-btn" class="hidden">RE-SEED MODEL (Reset)</button>
+        </div>
+
+        <div class="logs" id="logs">
+            <div class="log-entry">> System initialized. Waiting for prompt...</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

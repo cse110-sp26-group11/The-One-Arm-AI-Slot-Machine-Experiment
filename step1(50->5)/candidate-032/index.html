@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Token Burner - AI Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>THE TOKEN BURNER</h1>
+            <p class="subtitle">Burning capital to reach AGI (Eventually™)</p>
+        </header>
+
+        <main class="slot-machine">
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="label">INFERENCE TOKENS</span>
+                    <span id="token-balance" class="value">5000</span>
+                </div>
+                <div class="stat">
+                    <span class="label">COMPUTE CREDITS</span>
+                    <span id="credit-balance" class="value">0</span>
+                </div>
+            </div>
+
+            <div class="reel-container">
+                <div class="reel" id="reel-1">
+                    <div class="symbols"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbols"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="symbols"></div>
+                </div>
+                <div class="payline"></div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-button" class="btn-primary">EXECUTE PROMPT (500 Tokens)</button>
+            </div>
+
+            <div class="status-panel">
+                <p id="status-text">Ready to run inference...</p>
+                <div class="vram-meter">
+                    <div class="vram-label">VRAM USAGE</div>
+                    <div class="vram-bar"><div id="vram-fill" style="width: 10%;"></div></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="legal-disclaimer">
+            * This model is for research purposes only. "Jackpot" results may be hallucinations.
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

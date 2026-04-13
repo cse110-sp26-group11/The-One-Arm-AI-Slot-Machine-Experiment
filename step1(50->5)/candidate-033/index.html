@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine - Prompt for Wealth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI TOKEN SLOT</h1>
+            <div class="status-panel">
+                <span id="status-message">Ready to infer...</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="reel-strip"></div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="reel-strip"></div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="reel-strip"></div>
+                    </div>
+                </div>
+                <div class="payline"></div>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat">
+                    <label>COMPUTE TOKENS</label>
+                    <span id="token-balance">1000</span>
+                </div>
+                <div class="stat">
+                    <label>BATCH SIZE (BET)</label>
+                    <span id="current-bet">10</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="bet-decrease" class="btn">-</button>
+                <button id="spin-button" class="btn-main">PROMPT</button>
+                <button id="bet-increase" class="btn">+</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Warning: AI may hallucinate winnings. Past performance is not indicative of future inference.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

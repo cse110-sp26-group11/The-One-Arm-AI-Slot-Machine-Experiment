@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI TOKEN SLOT MACHINE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="crt-overlay">
+    <div class="monitor">
+        <header>
+            <div class="logo">AI_TOKEN_GEN_v1.0.4</div>
+            <div class="status-bar">
+                <span>STATUS: <span class="blink">OPTIMIZING_LIES</span></span>
+                <span>BALANCE: <span id="balance">1024</span> TOKENS</span>
+            </div>
+        </header>
+
+        <main class="slot-container">
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="reel-strip">🤖</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-strip">🤖</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-strip">🤖</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="bet-control">
+                    <label for="bet-size">TOKEN ALLOCATION:</label>
+                    <select id="bet-size">
+                        <option value="16">16 (Seed)</option>
+                        <option value="64">64 (Base)</option>
+                        <option value="256">256 (Hyper-param)</option>
+                        <option value="1024">1024 (AGI-Hope)</option>
+                    </select>
+                </div>
+                <button id="spin-btn">RE-TRAIN MODEL</button>
+                <button id="bailout-btn" style="display: none;">BEG FOR SERIES A</button>
+            </div>
+        </main>
+
+        <section class="terminal">
+            <div class="terminal-header">SYSTEM_LOG_OUTPUT</div>
+            <div id="log-output" class="log-content">
+                <p>> System initialized.</p>
+                <p>> Waiting for user metadata... I mean, compute instructions.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-note">PROPRIETARY_ALGORITHM. DO_NOT_AUDIT.</div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
