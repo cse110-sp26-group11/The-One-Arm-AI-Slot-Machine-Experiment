@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Large Loss Machine (LLM)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="machine-container">
+        <header>
+            <h1>THE LARGE LOSS MACHINE</h1>
+            <p class="subtitle">Optimizing your wallet for zero convergence</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="label">COMPUTE CREDITS:</span>
+                <span id="credit-count">100</span>
+            </div>
+            <div class="stat">
+                <span class="label">STATUS:</span>
+                <span id="status-text" class="status-ready">READY TO INFER</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reel-container">
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="win-line"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="spin-button">RUN INFERENCE</button>
+        </div>
+
+        <div class="log-container">
+            <div class="log-header">SYSTEM_LOG_V2.04</div>
+            <div id="log-content">
+                <div class="log-entry">> Initializing neural weights...</div>
+                <div class="log-entry">> Hyperparameters set to maximal hype.</div>
+                <div class="log-entry">> Ready for tokens.</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="hidden">
+        <div class="overlay-content">
+            <h2 id="overlay-title">AGI ACHIEVED</h2>
+            <p id="overlay-message">Wait, never mind. It was just a hallucination.</p>
+            <button id="restart-button">RE-FUND STARTUP</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
