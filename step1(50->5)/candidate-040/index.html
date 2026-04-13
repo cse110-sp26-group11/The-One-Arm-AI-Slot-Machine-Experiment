@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AGI Gamble | Inference Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    <div class="container">
+        <header>
+            <h1>AGI INFERENCE ENGINE v0.1-alpha</h1>
+            <div class="status-bar">
+                <span id="gpu-temp">GPU TEMP: 42°C</span>
+                <span id="status-text">STATUS: IDLE</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel" id="reel1"><div class="reel-strip">🤖</div></div>
+                    <div class="reel" id="reel2"><div class="reel-strip">🧠</div></div>
+                    <div class="reel" id="reel3"><div class="reel-strip">💰</div></div>
+                    <div class="payline"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="stats">
+                    <div class="stat-box">
+                        <label>COMPUTE TOKENS</label>
+                        <div id="token-balance">1000</div>
+                    </div>
+                    <div class="stat-box">
+                        <label>CURRENT BET</label>
+                        <div id="current-bet">10</div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="btn-bet-up" class="btn">INCREASE PARAMETERS</button>
+                    <button id="btn-spin" class="btn btn-primary">INITIATE INFERENCE</button>
+                    <button id="btn-bet-down" class="btn">PRUNE MODEL</button>
+                </div>
+            </div>
+
+            <div class="terminal">
+                <div class="terminal-header">SESSION LOGS</div>
+                <div id="terminal-content" class="terminal-content">
+                    <div>> Initializing Neural Weights...</div>
+                    <div>> Optimizing Hyperparameters...</div>
+                    <div>> Ready for Inference.</div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>WARNING: MODEL MAY HALLUCINATE OR CAUSE SUDDEN VC FUNDING LOSS.</p>
+        </footer>
+    </div>
+
+    <script src="sfx.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

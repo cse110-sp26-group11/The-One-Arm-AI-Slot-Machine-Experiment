@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGI Slot Machine - Run Inference</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AGI SLOT MACHINE</h1>
+            <p class="subtitle">Simulating Intelligence, One Token at a Time</p>
+        </header>
+
+        <div class="token-display">
+            <span class="label">Compute Tokens:</span>
+            <span id="token-count" class="value">100</span>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+            
+            <button id="spin-button">RUN INFERENCE</button>
+        </div>
+
+        <div class="status-panel">
+            <div class="panel-header">Status Log</div>
+            <div id="status-log" class="log-content">
+                <p>> System initialized.</p>
+                <p>> Waiting for compute budget...</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="refill-button" class="secondary-button">Request Series A Funding</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
