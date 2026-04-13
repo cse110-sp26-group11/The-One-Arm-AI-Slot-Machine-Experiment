@@ -89,7 +89,7 @@ For every run, capture:
 ## Repository Structure
 
 ```
-repo-root/
+The-One-Arm-AI-Slot-Machine_Experiment/
 ├── README.md
 ├── RUBRIC.md
 ├── data-capture-template.csv
