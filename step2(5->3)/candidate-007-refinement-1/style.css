@@ -20,10 +20,11 @@ body {
 .container {
     text-align: center;
     border: 2px solid var(--primary-color);
-    padding: 40px;
+    padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 0 20px var(--primary-color);
-    max-width: 500px;
+    box-shadow: 0 0 25px var(--primary-color);
+    max-width: 600px;
+    background: rgba(13, 13, 13, 0.95);
 }
 
 h1 {
@@ -47,7 +48,7 @@ h1 {
 .stat-box {
     border: 1px solid var(--text-color);
     padding: 10px;
-    width: 150px;
+    width: 200px;
 }
 
 .label {
@@ -90,16 +91,52 @@ h1 {
     100% { transform: translateY(2px); }
 }
 
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px dashed var(--secondary-color);
+    border-radius: 10px;
+}
+
+.bet-selection {
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.bet-selection select {
+    background: var(--reel-bg);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 5px 10px;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .controls button {
     background: transparent;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
-    margin: 0 10px;
     transition: all 0.2s;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .controls button:hover {
@@ -108,16 +145,65 @@ h1 {
     box-shadow: 0 0 15px var(--primary-color);
 }
 
+#spin-btn {
+    background: var(--primary-color);
+    color: var(--bg-color);
+    font-size: 1.1rem;
+}
+
+#spin-btn:hover {
+    background: white;
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
 .controls button:disabled {
     border-color: #555;
-    color: #555;
+    color: #555 !important;
+    background: transparent !important;
     cursor: not-allowed;
+    box-shadow: none !important;
+}
+
+.paytable {
+    margin-top: 25px;
+    padding: 15px;
+    background: rgba(255, 0, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid var(--secondary-color);
+}
+
+.paytable h3 {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+}
+
+.paytable ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.paytable li {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.paytable strong {
+    color: var(--primary-color);
 }
 
 .status {
     margin-top: 20px;
-    height: 40px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .info-footer {
