@@ -30,30 +30,43 @@
                 </div>
 
                 <div class="controls">
+                    <div class="bet-selector">
+                        <span class="label">COMPUTE INTENSITY:</span>
+                        <div class="bet-options">
+                            <button class="bet-btn active" data-bet="10">LOW (10)</button>
+                            <button class="bet-btn" data-bet="50">MID (50)</button>
+                            <button class="bet-btn" data-bet="100">HIGH (100)</button>
+                            <button class="bet-btn" data-bet="500">A100 (500)</button>
+                        </div>
+                    </div>
+
                     <button id="spin-btn">GENERATE RESPONSE</button>
+                    
                     <div class="credits-box">
                         <span class="label">COMPUTE CREDITS:</span>
                         <span id="credit-count">500</span>
                     </div>
-                    <button id="vc-funding-btn" style="display: none; font-size: 0.8rem; padding: 5px 10px; background: var(--neon-magenta); border: none; cursor: pointer;">RAISE SEED ROUND (+500)</button>
+
+                    <button id="vc-funding-btn" class="special-btn">RAISE SEED ROUND (+1000)</button>
                 </div>
             </div>
 
             <div class="payout-table">
-                <h3>PAYOUTS (X TOKEN MULTIPLIER)</h3>
-                <div class="payout-grid">
-                    <span>🤖🤖🤖 Singularity: 100x</span>
-                    <span>📎📎📎 Alignment: 50x</span>
-                    <span>📉📉📉 Seed Round: 20x</span>
-                    <span>🔥🔥🔥 Meltdown: 10x</span>
-                    <span>🦜🦜🦜 Parrot: 5x</span>
-                    <span>🧠🧠🧠 Injected: 2x</span>
+                <h3>PAYOUTS (CURRENT MULTIPLIER)</h3>
+                <div id="payout-grid" class="payout-grid">
+                    <!-- Populated by JS -->
                 </div>
             </div>
         </main>
 
+        <section class="funny-stats">
+            <div class="stat-item">ENERGY CONSUMED: <span id="energy-stat">0</span> kWh</div>
+            <div class="stat-item">ETHICS BYPASSED: <span id="ethics-stat">0</span>%</div>
+        </section>
+
         <footer>
             <p>&copy; 2026 Stochastic Parrots Inc. Not financial advice. Especially the model collapse.</p>
+            <p style="font-size: 0.6rem; margin-top: 5px;">Warning: Excessive usage may lead to AGI (Artificial General Incompetence)</p>
         </footer>
     </div>
 
