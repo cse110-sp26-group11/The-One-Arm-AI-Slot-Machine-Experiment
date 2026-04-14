@@ -120,78 +120,170 @@ header {
 #stats {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .stat-item {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--neon-cyan);
+    text-transform: uppercase;
 }
 
-#balance, #multiplier {
+#balance {
     display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.bet-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.bet-selector button {
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bet-selector button:hover {
+    background: var(--neon-blue);
+    color: #000;
+}
+
+#current-bet {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--neon-pink);
+    min-width: 40px;
+    text-align: center;
 }
 
 #controls {
-    text-align: center;
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-#spin-button, #vc-button {
-    background: transparent;
-    border: 2px solid var(--neon-pink);
-    color: var(--neon-pink);
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    font-family: 'Courier New', Courier, monospace;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 5px var(--neon-pink);
-    border-radius: 5px;
-    margin: 5px;
+.funding-actions {
+    display: flex;
+    gap: 10px;
 }
 
-#vc-button {
-    border-color: var(--neon-cyan);
+#spin-button {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+#vc-button, #info-button {
+    flex: 1;
+    margin: 0;
+    font-size: 0.7rem;
+    border: 1px solid var(--neon-cyan);
     color: var(--neon-cyan);
-    font-size: 0.8rem;
     box-shadow: 0 0 5px var(--neon-cyan);
 }
 
-#spin-button:hover:not(:disabled) {
-    background: var(--neon-pink);
-    color: white;
-    box-shadow: 0 0 15px var(--neon-pink);
-}
-
-#vc-button:hover {
-    background: var(--neon-cyan);
-    color: #000;
-    box-shadow: 0 0 15px var(--neon-cyan);
-}
-
-#spin-button:disabled {
-    border-color: #555;
-    color: #555;
-    cursor: not-allowed;
-    box-shadow: none;
+#info-button {
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+    box-shadow: 0 0 5px var(--neon-purple);
 }
 
 #status-log {
     background: #000;
     border: 1px solid #333;
     padding: 10px;
-    height: 80px;
+    height: 100px;
     overflow-y: hidden;
     font-size: 0.7rem;
     color: #0f0;
     display: flex;
     flex-direction: column-reverse;
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px rgba(0, 255, 0, 0.2);
 }
+
+/* Modals */
+.hidden { display: none !important; }
+
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 2px solid var(--neon-purple);
+    padding: 20px;
+    width: 320px;
+    box-shadow: var(--border-glow);
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: var(--neon-cyan);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+#paytable-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.pay-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,0,0,0.5);
+    padding: 5px;
+    border: 1px solid #333;
+}
+
+.pay-item .symbol-mini { font-size: 1.5rem; }
+.pay-item .payout-val { color: var(--neon-pink); font-weight: bold; }
+
+.footer-note { font-size: 0.6rem; color: #777; margin-bottom: 10px; }
+
+.close-modal {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.close-modal:hover { background: var(--neon-cyan); color: #000; }
 
 .status-entry {
     margin: 2px 0;
