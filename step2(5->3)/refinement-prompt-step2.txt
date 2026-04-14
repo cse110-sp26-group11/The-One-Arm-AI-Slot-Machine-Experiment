@@ -1,0 +1,1 @@
+Improve this vanilla HTML CSS JS slot machine web application in the following ways: make sure it has essential features like informing users about payouts, ability to add more tokens, choose the gamble amount, and just make it funnier and more fun. Keep other stuff like the tech stack and base feature set the same.
