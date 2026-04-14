@@ -1,0 +1,1 @@
+Improve this vanilla HTML CSS JS slot machine web application in the following ways: add sound effects, add an adjustment mechanism to change the odds of the slots, add more fun things to make fun of the AI companies. Keep other stuff like the tech stack and base feature set the same.
