@@ -26,15 +26,15 @@
                 <div class="paytable-container card">
                     <h3>Payout Multipliers</h3>
                     <div class="paytable-grid">
-                        <div class="pay-item"><span>💸💸💸</span> <span>50x</span></div>
+                        <div class="pay-item"><span>🦄🦄🦄</span> <span>500x</span></div>
+                        <div class="pay-item"><span>💸💸💸</span> <span>100x</span></div>
                         <div class="pay-item"><span>🧠🧠🧠</span> <span>20x</span></div>
-                        <div class="pay-item"><span>🤖🤖🤖</span> <span>10x</span></div>
-                        <div class="pay-item"><span>⚡⚡⚡</span> <span>8x</span></div>
+                        <div class="pay-item"><span>🤖🤖🤖</span> <span>15x</span></div>
+                        <div class="pay-item"><span>⚡⚡⚡</span> <span>10x</span></div>
                         <div class="pay-item"><span>☁️☁️☁️</span> <span>5x</span></div>
-                        <div class="pay-item"><span>📉📉📉</span> <span class="text-danger">-20x</span></div>
-                        <div class="pay-item"><span>💸💸</span> <span>5x</span></div>
+                        <div class="pay-item"><span>📉📉📉</span> <span class="text-danger">-50x</span></div>
+                        <div class="pay-item"><span>🔒🔒🔒</span> <span class="text-danger">-100x</span></div>
                         <div class="pay-item"><span>ANY 2</span> <span>2x</span></div>
-                        <div class="pay-item"><span>💸</span> <span>1x</span></div>
                     </div>
                 </div>
 
@@ -87,14 +87,20 @@
                 <div class="card">
                     <h3>Model Settings</h3>
                     <div class="setting">
-                        <label>Hallucination Level</label>
-                        <input type="range" disabled value="95">
+                        <label>Hallucination Level (Odds of 📉)</label>
+                        <input type="range" id="hallucination-slider" min="0" max="200" value="95">
                     </div>
                     <div class="setting">
-                        <label>Confidence Bias</label>
-                        <input type="range" disabled value="100">
+                        <label>Confidence Bias (Odds of 💸)</label>
+                        <input type="range" id="confidence-slider" min="0" max="200" value="100">
                     </div>
-                    <p class="small-text text-muted">Upgrade to ENTERPRISE for "Truth" mode.</p>
+                    <div class="setting">
+                        <label class="checkbox-label" style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem;">
+                            <input type="checkbox" id="safety-toggle" checked>
+                            Enable Safety Filter (Censorship)
+                        </label>
+                    </div>
+                    <p class="small-text text-muted">Higher Hallucination = better creative output (and debt).</p>
                 </div>
                 <div class="card">
                     <h3>Startup Health</h3>
