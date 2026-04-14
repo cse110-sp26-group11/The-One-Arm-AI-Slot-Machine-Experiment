@@ -1,0 +1,13 @@
+Improve the existing slot machine web app with a focus on polish and user experience.
+
+Focus on:
+- Enhance the smoothness and consistency of reel animations
+- Improve timing and transitions to make interactions feel natural
+- Refine UI layout, spacing, and alignment for better visual clarity
+- Add clear and immediate feedback for win/lose outcomes
+- Improve responsiveness and overall usability
+
+Keep using only HTML, CSS, and JavaScript.
+Do not introduce new frameworks or major new features.
+
+Return a complete working version of the app.
