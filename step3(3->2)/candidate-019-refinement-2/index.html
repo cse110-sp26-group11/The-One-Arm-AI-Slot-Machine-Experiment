@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI HYPE MACHINE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1 class="glitch-text" data-text="AI HYPE MACHINE">AI HYPE MACHINE</h1>
+        </header>
+
+        <div id="slot-machine">
+            <div id="reel-container">
+                <div class="reel" id="reel-1">
+                    <div class="reel-strip" id="strip-1"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-strip" id="strip-2"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-strip" id="strip-3"></div>
+                </div>
+                <div id="win-line"></div>
+            </div>
+        </div>
+
+        <div id="dashboard">
+            <div id="stats">
+                <div class="stat-item">
+                    <label>COMPUTE BALANCE</label>
+                    <span id="balance">500</span>
+                </div>
+                <div class="stat-item">
+                    <label>CURRENT BET</label>
+                    <div class="bet-selector">
+                        <button id="bet-down">-</button>
+                        <span id="current-bet">10</span>
+                        <button id="bet-up">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="controls">
+                <button id="spin-button">BURN TOKENS</button>
+                <div class="funding-actions">
+                    <button id="vc-button">SECURE SERIES A</button>
+                    <button id="info-button" title="View Payouts">PAYTABLE</button>
+                </div>
+            </div>
+
+            <div id="status-log">
+                <p class="status-entry">> Initialize AI Hype Engine...</p>
+                <p class="status-entry">> Context window ready.</p>
+                <p class="status-entry">> Awaiting investment...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="hidden">
+        <div id="paytable-modal" class="modal-content hidden">
+            <h2>HYPE PAYOUTS</h2>
+            <div id="paytable-grid"></div>
+            <p class="footer-note">* Payouts are multipliers of your CURRENT BET.</p>
+            <button class="close-modal">DISMISS</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hallucinogen 3000 - AI Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>The Hallucinogen 3000</h1>
+            <p class="subtitle">AI-Powered Reality Compression Engine™</p>
+        </header>
+
+        <div class="status-panel">
+            <div class="status-item">
+                <span class="label">Training Tokens:</span>
+                <span id="token-count" class="value">500</span>
+                <button id="funding-button" class="mini-btn">Get VC Funding</button>
+            </div>
+            <div class="status-item">
+                <span class="label">Hype Level:</span>
+                <span id="hype-level" class="value">Low</span>
+                <div class="hype-bar-container">
+                    <div id="hype-bar" class="hype-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-box" id="message-box">
+            Initialising weights... Ready to overfit.
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel-1">
+                    <div class="symbol-container"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbol-container"></div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="symbol-container"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="bet-control">
+                    <label for="bet-amount">Compute Budget:</label>
+                    <select id="bet-amount">
+                        <option value="10">10 (Seed Round)</option>
+                        <option value="50">50 (Series A)</option>
+                        <option value="100">100 (IPO Bound)</option>
+                        <option value="500">500 (Total Burn)</option>
+                    </select>
+                </div>
+                <button id="spin-button">OPTIMIZE (SPIN)</button>
+                <button id="paytable-toggle" class="secondary-btn">View Payout Matrix</button>
+            </div>
+        </div>
+
+        <div id="paytable-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Payout Matrix</h3>
+                <div id="paytable-list"></div>
+                <p class="hint">3 matching: Symbol Value × Budget</p>
+                <p class="hint">2 matching: 0.5 × Symbol Value × Budget</p>
+                <button id="close-paytable" class="mini-btn">Close</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Disclaimer: Any resemblance to actual intelligence is purely hallucinated.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

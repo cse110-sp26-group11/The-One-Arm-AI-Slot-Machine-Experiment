@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenGpt-5 / Hallucinizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">✨</span>
+                <span class="logo-text">TokenGpt-5 <span class="badge">PRO</span></span>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Context Window</span>
+                    <span class="stat-value" id="token-balance">1,000</span> <span class="stat-unit">tokens</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="slot-machine-wrapper">
+                <div class="paytable-container card">
+                    <h3>Payout Multipliers</h3>
+                    <div class="paytable-grid">
+                        <div class="pay-item"><span>💸💸💸</span> <span>50x</span></div>
+                        <div class="pay-item"><span>🧠🧠🧠</span> <span>20x</span></div>
+                        <div class="pay-item"><span>🤖🤖🤖</span> <span>10x</span></div>
+                        <div class="pay-item"><span>⚡⚡⚡</span> <span>8x</span></div>
+                        <div class="pay-item"><span>☁️☁️☁️</span> <span>5x</span></div>
+                        <div class="pay-item"><span>📉📉📉</span> <span class="text-danger">-20x</span></div>
+                        <div class="pay-item"><span>💸💸</span> <span>5x</span></div>
+                        <div class="pay-item"><span>ANY 2</span> <span>2x</span></div>
+                        <div class="pay-item"><span>💸</span> <span>1x</span></div>
+                    </div>
+                </div>
+
+                <div class="machine-border">
+                    <div class="reels-container" id="reels">
+                        <div class="reel" id="reel-1">
+                            <div class="reel-strip">
+                                <!-- Symbols will be injected via JS -->
+                            </div>
+                        </div>
+                        <div class="reel" id="reel-2">
+                            <div class="reel-strip">
+                                <!-- Symbols will be injected via JS -->
+                            </div>
+                        </div>
+                        <div class="reel" id="reel-3">
+                            <div class="reel-strip">
+                                <!-- Symbols will be injected via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="status-panel">
+                    <p id="status-text">Ready to hallucinate...</p>
+                </div>
+
+                <div class="bet-controls">
+                    <label>Funding Round (Bet):</label>
+                    <div class="bet-buttons">
+                        <button class="bet-btn active" data-amount="50">Seed (50)</button>
+                        <button class="bet-btn" data-amount="200">Series A (200)</button>
+                        <button class="bet-btn" data-amount="500">Series B (500)</button>
+                        <button class="bet-btn" data-amount="1000">IPO Hype (1k)</button>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="generate-btn" class="primary-btn">
+                        <span class="btn-text">GENERATE INFERENCE</span>
+                        <span class="btn-cost">(-50 tokens)</span>
+                    </button>
+                    <button id="funding-btn" class="secondary-btn hidden">
+                        Beg VCs for more funding
+                    </button>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="card">
+                    <h3>Model Settings</h3>
+                    <div class="setting">
+                        <label>Hallucination Level</label>
+                        <input type="range" disabled value="95">
+                    </div>
+                    <div class="setting">
+                        <label>Confidence Bias</label>
+                        <input type="range" disabled value="100">
+                    </div>
+                    <p class="small-text text-muted">Upgrade to ENTERPRISE for "Truth" mode.</p>
+                </div>
+                <div class="card">
+                    <h3>Startup Health</h3>
+                    <div class="metric">
+                        <span class="label">Technical Debt</span>
+                        <div class="progress-bar danger"><div class="progress" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Hype Momentum</span>
+                        <div class="progress-bar"><div class="progress" id="hype-progress" style="width: 40%;"></div></div>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Burn Rate</span>
+                        <div class="progress-bar danger"><div class="progress" id="burn-progress" style="width: 20%;"></div></div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 HallucinateAI Inc. | Not a real AI. Definitely not gambling.</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
