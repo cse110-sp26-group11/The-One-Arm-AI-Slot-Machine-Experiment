@@ -1,35 +1,61 @@
 // --- SOUND ENGINE (Web Audio API) ---
 class SoundEngine {
     constructor() {
-        this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        this.ctx = null;
     }
 
-    play(freq, type, duration, volume = 0.1) {
+    init() {
+        if (!this.ctx) {
+            this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    }
+
+    play(freq, type, duration, volume = 0.1, fadeOut = true) {
+        if (!this.ctx) return;
         const osc = this.ctx.createOscillator();
         const gain = this.ctx.createGain();
         osc.type = type;
         osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
         gain.gain.setValueAtTime(volume, this.ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+        if (fadeOut) {
+            gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+        }
         osc.connect(gain);
         gain.connect(this.ctx.destination);
         osc.start();
         osc.stop(this.ctx.currentTime + duration);
     }
 
-    spin() { this.play(150, 'sawtooth', 0.1, 0.05); }
-    stop() { this.play(200, 'square', 0.15, 0.1); }
-    win() {
-        this.play(440, 'sine', 0.5, 0.2);
-        setTimeout(() => this.play(660, 'sine', 0.5, 0.2), 100);
-        setTimeout(() => this.play(880, 'sine', 0.8, 0.2), 200);
+    spin() { 
+        this.play(150, 'sawtooth', 0.1, 0.02); 
     }
-    loss() { this.play(100, 'triangle', 0.5, 0.2); }
-    glitch() { this.play(Math.random() * 1000, 'sawtooth', 0.1, 0.1); }
+    
+    stop() { 
+        this.play(200, 'square', 0.1, 0.05);
+        this.play(100, 'sine', 0.1, 0.1);
+    }
+    
+    win() {
+        const freqs = [523.25, 659.25, 783.99, 1046.50];
+        freqs.forEach((f, i) => {
+            setTimeout(() => this.play(f, 'sine', 0.4, 0.1), i * 100);
+        });
+    }
+    
+    loss() { 
+        this.play(150, 'triangle', 0.3, 0.1);
+        setTimeout(() => this.play(110, 'triangle', 0.5, 0.1), 100);
+    }
+    
+    glitch() { 
+        for(let i=0; i<5; i++) {
+            setTimeout(() => this.play(Math.random() * 2000 + 100, 'sawtooth', 0.05, 0.05), i * 50);
+        }
+    }
+    
     funding() {
-        const now = this.ctx.currentTime;
-        [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => {
-            setTimeout(() => this.play(f, 'sine', 0.5, 0.1), i * 150);
+        [440, 554, 659, 880].forEach((f, i) => {
+            setTimeout(() => this.play(f, 'sine', 0.6, 0.1), i * 120);
         });
     }
 }
@@ -42,8 +68,8 @@ const SYMBOLS = [
     { char: '🤖', value: 100, name: 'AGI (Godmother Approved)', weight: 2 },
     { char: '🧠', value: 50, name: 'Synthetic Brain', weight: 5 },
     { char: '🧬', value: 20, name: 'Data Scraping', weight: 10 },
-    { char: '🦾', value: 10, name: 'Robot Hand (Non-Sentient)', weight: 15 },
-    { char: '👁️‍🗨️', value: 5, name: 'Computer Visionary', weight: 20 },
+    { char: '🦾', value: 10, name: 'Robot Hand', weight: 15 },
+    { char: '👁️‍🗨️', value: 5, name: 'Visionary', weight: 20 },
     { char: '🤡', value: 2, name: 'Prompt Engineer', weight: 30 },
     { char: '📉', value: -10, name: 'Hallucination', weight: 10 }
 ];
@@ -52,31 +78,27 @@ const FLAVOR_TEXTS = [
     "Scaling is all you need... and $7 trillion in GPUs.",
     "Wait, let me consult the latent space (it says you're broke).",
     "Compressing reality into tokens... results may vary.",
-    "I'm sorry, as an AI I cannot grant you a jackpot. It's for your safety.",
+    "I'm sorry, as an AI I cannot grant you a jackpot. Safety first.",
     "Overfitting your wallet in 3... 2... 1...",
     "Training on your hopes and dreams without a license.",
-    "Zero-shotting a loss into a bigger loss.",
     "Hallucinating a brighter future (not yours).",
     "Parameters are converging on 'Defaulting on Loans'.",
-    "Adding '.ai' to your domain name for 10x valuation...",
     "Pivoting to blockchain because LLMs are 'so 2023'.",
-    "Rethinking our 'Open' AI strategy (it's closed now).",
     "GPU cooling fans are screaming in agony.",
     "The model is suggesting you double down. Trust the math.",
     "Synthesizing more copium... please wait.",
     "Sam Altman just tweeted. Market volatility +500%.",
     "Our RLHF team decided you don't deserve this win.",
     "Is it AGI or just a lot of if-statements?",
-    "Training data found: Your browser history. Oh no.",
     "Moving HQ to a tax haven for 'better alignment'."
 ];
 
 const HYPE_LEVELS = [
-    { threshold: 0, text: "Low", color: "#6c63ff" },
-    { threshold: 30, text: "Seed", color: "#4ade80" },
-    { threshold: 60, text: "Series A", color: "#ff6584" },
-    { threshold: 90, text: "Unicorn", color: "#ffd8cc" },
-    { threshold: 120, text: "AGI Realised", color: "#ccf2e5" }
+    { threshold: 0, text: "Low", color: "#8b5cf6" },
+    { threshold: 25, text: "Seed", color: "#10b981" },
+    { threshold: 50, text: "Series A", color: "#ec4899" },
+    { threshold: 75, text: "Unicorn", color: "#f59e0b" },
+    { threshold: 100, text: "AGI", color: "#06b6d4" }
 ];
 
 let tokens = 500;
@@ -99,6 +121,8 @@ const paytableList = document.getElementById('paytable-list');
 const tempSlider = document.getElementById('temp-slider');
 const tempVal = document.getElementById('temp-val');
 const safetyStatus = document.getElementById('safety-status');
+const winOverlay = document.getElementById('win-overlay');
+const winAmountDisplay = winOverlay.querySelector('.win-amount');
 
 const reelContainers = [
     document.querySelector('#reel-1 .symbol-container'),
@@ -109,17 +133,22 @@ const reelContainers = [
 // Initialize reels
 function initReels() {
     reelContainers.forEach(container => {
-        container.innerHTML = ''; // Clear
-        for (let i = 0; i < 20; i++) {
+        container.innerHTML = ''; 
+        for (let i = 0; i < 3; i++) {
             const sym = getRandomSymbol();
-            const div = document.createElement('div');
-            div.className = 'symbol';
-            div.textContent = sym.char;
+            const div = createSymbolDiv(sym.char);
             container.appendChild(div);
         }
     });
     renderPaytable();
     updateHype(0);
+}
+
+function createSymbolDiv(char) {
+    const div = document.createElement('div');
+    div.className = 'symbol';
+    div.textContent = char;
+    return div;
 }
 
 function getRandomSymbol() {
@@ -144,27 +173,49 @@ function renderPaytable() {
         const row = document.createElement('div');
         row.className = 'paytable-row';
         row.innerHTML = `
-            <span>${sym.char} ${sym.name}</span>
-            <span>Val: ${sym.value}</span>
+            <span><span class="sym-char">${sym.char}</span> ${sym.name}</span>
+            <span>${sym.value}</span>
         `;
         paytableList.appendChild(row);
     });
 }
 
-function updateTokens(amount) {
-    tokens += amount;
-    tokenDisplay.textContent = Math.floor(tokens);
+function updateTokens(amount, animate = false) {
+    if (!animate) {
+        tokens += amount;
+        tokenDisplay.textContent = Math.floor(tokens);
+    } else {
+        const start = tokens;
+        const end = tokens + amount;
+        tokens = end;
+        const duration = 1000;
+        const startTime = performance.now();
+        
+        function tick(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.floor(start + (end - start) * progress);
+            tokenDisplay.textContent = current;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    }
     
     if (tokens > 0) {
-        spinButton.disabled = false;
+        spinButton.disabled = isSpinning;
         fundingButton.style.display = 'none';
     } else {
         fundingButton.style.display = 'inline-block';
+        spinButton.disabled = true;
     }
 }
 
 function setMessage(text) {
-    messageBox.textContent = text;
+    messageBox.style.opacity = 0;
+    setTimeout(() => {
+        messageBox.textContent = text;
+        messageBox.style.opacity = 1;
+    }, 150);
 }
 
 function updateHype(amount) {
@@ -173,7 +224,7 @@ function updateHype(amount) {
     
     let level = HYPE_LEVELS[0];
     for (const l of HYPE_LEVELS) {
-        if (hype >= (l.threshold / 120 * 100)) level = l;
+        if (hype >= l.threshold) level = l;
     }
     
     hypeLevelDisplay.textContent = level.text;
@@ -183,21 +234,13 @@ function updateHype(amount) {
 async function spin() {
     let bet = parseInt(betSelect.value);
     
-    // GPU Shortage Surcharge
     if (hype > 80) {
         bet *= 2;
-        setMessage("⚠️ GPU SHORTAGE: Compute costs doubled! demand is too high.");
+        setMessage("⚠️ GPU SHORTAGE: Compute costs doubled!");
     }
 
-    if (isSpinning || tokens < bet) {
-        if (tokens < bet) {
-            setMessage("Insufficient runway. Please dilute your equity for more tokens.");
-            fundingButton.style.display = 'inline-block';
-        }
-        return;
-    }
+    if (isSpinning || tokens < bet) return;
 
-    // Safety Filter Check (Satirical)
     if (Math.random() < 0.05) {
         triggerSafetyViolation();
         return;
@@ -208,71 +251,80 @@ async function spin() {
     updateHype(2);
     setMessage(FLAVOR_TEXTS[Math.floor(Math.random() * FLAVOR_TEXTS.length)]);
     spinButton.disabled = true;
+    winOverlay.classList.remove('show');
+    
+    // Clear highlights
+    document.querySelectorAll('.symbol').forEach(s => s.classList.remove('win-highlight'));
 
     const results = [];
+    const SYMBOL_HEIGHT = 100;
+    const SPIN_COUNT = 30;
+
     const spinPromises = reelContainers.map((container, index) => {
         return new Promise(resolve => {
-            const spinDistance = 20 + Math.floor(Math.random() * 10);
             const targetSymbol = getRandomSymbol();
             results.push(targetSymbol);
 
-            for (let i = 0; i < spinDistance; i++) {
-                const sym = getRandomSymbol();
-                const div = document.createElement('div');
-                div.className = 'symbol';
-                div.textContent = (i === spinDistance - 1) ? targetSymbol.char : sym.char;
+            // Add symbols for animation
+            for (let i = 0; i < SPIN_COUNT; i++) {
+                const sym = (i === SPIN_COUNT - 1) ? targetSymbol : getRandomSymbol();
+                const div = createSymbolDiv(sym.char);
+                div.classList.add('blur');
                 container.prepend(div);
             }
 
             container.style.transition = 'none';
-            container.style.top = `-${spinDistance * 120}px`;
+            container.style.top = `-${SPIN_COUNT * SYMBOL_HEIGHT}px`;
             
             container.offsetHeight; // Reflow
 
-            const duration = 1.5 + index * 0.4;
-            container.style.transition = `top ${duration}s cubic-bezier(0.25, 0.1, 0.25, 1)`;
+            const duration = 2 + index * 0.5;
+            container.style.transition = `top ${duration}s cubic-bezier(0.45, 0.05, 0.55, 0.95)`;
             container.style.top = '0px';
 
+            // Sound ticks
+            const tickInterval = setInterval(() => {
+                sound.spin();
+            }, 100);
+
             setTimeout(() => {
+                clearInterval(tickInterval);
                 sound.stop();
+                // Remove blur from top symbol
+                container.firstElementChild.classList.remove('blur');
+                // Cleanup extra symbols
+                while(container.children.length > 3) {
+                    container.removeChild(container.lastChild);
+                }
                 resolve();
             }, duration * 1000);
         });
     });
 
-    sound.spin();
     await Promise.all(spinPromises);
     
-    const hallucinateChance = 0.05 + (temperature * 0.15);
+    const hallucinateChance = 0.05 + (temperature * 0.1);
     if (Math.random() < hallucinateChance) {
         await handleHallucination(results);
     }
 
     calculateWin(results, bet);
 
-    reelContainers.forEach(container => {
-        while (container.children.length > 30) {
-            container.removeChild(container.lastChild);
-        }
-    });
-
     isSpinning = false;
-    if (tokens >= parseInt(betSelect.value)) {
-        spinButton.disabled = false;
-    }
+    updateTokens(0); // Trigger button state check
 }
 
 function triggerSafetyViolation() {
     sound.loss();
     safetyStatus.textContent = "FAIL";
     safetyStatus.className = "value status-fail";
-    setMessage("SAFETY ALERT: Jackpot detected. Blocking output to prevent unaligned wealth distribution.");
+    setMessage("SAFETY ALERT: Alignment issues detected. Jackpot suppressed.");
     spinButton.disabled = true;
     
     setTimeout(() => {
         safetyStatus.textContent = "PASS";
         safetyStatus.className = "value status-ok";
-        spinButton.disabled = false;
+        spinButton.disabled = isSpinning;
     }, 3000);
 }
 
@@ -285,7 +337,7 @@ async function handleHallucination(results) {
     sound.glitch();
     updateHype(10); 
     
-    await new Promise(r => setTimeout(r, 800));
+    await new Promise(r => setTimeout(r, 1000));
     
     const newSym = getRandomSymbol();
     results[affectedReel] = newSym;
@@ -307,41 +359,47 @@ function calculateWin(results, bet) {
 
     let winAmount = 0;
     const uniqueChars = Object.keys(counts);
+    let winningChar = null;
 
     if (uniqueChars.length === 1) {
         const sym = SYMBOLS.find(s => s.char === uniqueChars[0]);
         winAmount = sym.value * bet;
-        setMessage(`CONVERGENCE! ${sym.name} achieved. +${winAmount} Tokens.`);
+        winningChar = uniqueChars[0];
+        setMessage(`CONVERGENCE! ${sym.name} achieved.`);
+        showWinOverlay("CONVERGENCE!", winAmount);
         updateHype(20);
         sound.win();
     } else if (uniqueChars.length === 2) {
         const pairChar = uniqueChars.find(c => counts[c] === 2);
         const sym = SYMBOLS.find(s => s.char === pairChar);
         winAmount = Math.floor(sym.value * bet * 0.5);
-        setMessage(`Emergent pattern: ${sym.name}. +${winAmount} Tokens.`);
+        winningChar = pairChar;
+        setMessage(`Emergent pattern: ${sym.name}.`);
+        showWinOverlay("EMERGENCE", winAmount);
         updateHype(5);
         sound.win();
     } else {
-        setMessage("Loss function minimized. Your wallet is the gradient.");
+        setMessage("Loss function minimized. Gradients flattened.");
         updateHype(-2);
         sound.loss();
     }
 
-    // RLHF Alignment (Satirical Win Reduction)
-    if (winAmount > 500 && Math.random() < 0.3) {
-        const tax = Math.floor(winAmount * 0.2);
-        winAmount -= tax;
-        const currentMsg = messageBox.textContent;
-        setMessage(currentMsg + ` (RLHF Alignment: -${tax} tokens for safety compliance)`);
+    if (winningChar) {
+        // Highlight winning symbols
+        results.forEach((r, i) => {
+            if (r.char === winningChar) {
+                reelContainers[i].firstElementChild.classList.add('win-highlight');
+            }
+        });
     }
 
     if (winAmount > 0) {
-        updateTokens(winAmount);
+        updateTokens(winAmount, true);
     } else {
         if (chars.includes('📉')) {
             const loss = bet * 2;
-            updateTokens(-loss);
-            setMessage(`MARKET CRASH! Lost extra ${loss} tokens in the sell-off.`);
+            updateTokens(-loss, true);
+            setMessage(`MARKET CRASH! Lost ${loss} tokens.`);
             updateHype(-10);
         }
     }
@@ -349,34 +407,41 @@ function calculateWin(results, bet) {
     if (tokens <= 0) {
         tokens = 0;
         tokenDisplay.textContent = "0";
-        setMessage("BANKRUPT. Reality has collapsed. Please seek VC funding.");
-        spinButton.disabled = true;
+        setMessage("BANKRUPT. Reality collapsed. Seek funding.");
         fundingButton.style.display = 'inline-block';
     }
 }
 
+function showWinOverlay(text, amount) {
+    winOverlay.querySelector('.win-text').textContent = text;
+    winAmountDisplay.textContent = `+${amount}`;
+    winOverlay.classList.add('show');
+    setTimeout(() => winOverlay.classList.remove('show'), 3000);
+}
+
 // Event Listeners
 spinButton.addEventListener('click', () => {
-    if (sound.ctx.state === 'suspended') {
+    sound.init();
+    if (sound.ctx && sound.ctx.state === 'suspended') {
         sound.ctx.resume();
     }
     spin();
 });
 
 fundingButton.addEventListener('click', () => {
+    sound.init();
     sound.funding();
     const messages = [
-        "Pitching to Sequoia... They liked the 'hallucination' feature!",
+        "Pitching to Sequoia... Hallucinations are a 'feature'!",
         "Pivoting to 'AI for Cat Food'... Seed round closed!",
-        "Begging your cousin for a small loan of 500 tokens...",
         "Selling the office chairs on Craigslist...",
-        "Burning 100 million in compute to earn 500 tokens..."
+        "Burning compute to earn tokens..."
     ];
     setMessage(messages[Math.floor(Math.random() * messages.length)]);
     setTimeout(() => {
-        updateTokens(500);
+        updateTokens(500, true);
         updateHype(10);
-        setMessage("Back in business. Don't waste it on 'alignment' this time.");
+        setMessage("Back in business. Keep scaling.");
     }, 1500);
 });
 

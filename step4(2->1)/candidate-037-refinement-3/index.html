@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Hallucinogen 3000 - AI Slot Machine</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
+        <div id="win-overlay">
+            <div class="win-text">CONVERGENCE!</div>
+            <div class="win-amount">+0</div>
+        </div>
+
         <header>
             <h1>The Hallucinogen 3000</h1>
             <p class="subtitle">AI-Powered Reality Compression Engine™</p>
@@ -15,30 +23,30 @@
 
         <div class="status-panel">
             <div class="status-item">
-                <span class="label">Training Tokens:</span>
+                <span class="label">Tokens</span>
                 <span id="token-count" class="value">500</span>
-                <button id="funding-button" class="mini-btn">Get VC Funding</button>
+                <button id="funding-button" class="mini-btn">Get Funding</button>
             </div>
             <div class="status-item">
-                <span class="label">Hype Level:</span>
+                <span class="label">Hype</span>
                 <span id="hype-level" class="value">Low</span>
                 <div class="hype-bar-container">
                     <div id="hype-bar" class="hype-bar"></div>
                 </div>
             </div>
             <div class="status-item">
-                <span class="label">Safety Filter:</span>
+                <span class="label">Safety</span>
                 <span id="safety-status" class="value status-ok">PASS</span>
             </div>
         </div>
 
         <div class="config-panel">
-            <h3>Hyperparameter Tuning (Odds)</h3>
+            <h3>Parameters</h3>
             <div class="config-row">
                 <label for="temp-slider">Temperature: <span id="temp-val">0.7</span></label>
                 <input type="range" id="temp-slider" min="0.1" max="2.0" step="0.1" value="0.7">
             </div>
-            <p class="config-hint">Low Temp: Stable returns, low variance. High Temp: Creative hallucinations, extreme volatility.</p>
+            <p class="config-hint">High Temp = More creative hallucinations.</p>
         </div>
 
         <div class="message-box" id="message-box">
@@ -60,16 +68,16 @@
 
             <div class="controls">
                 <div class="bet-control">
-                    <label for="bet-amount">Compute Budget:</label>
+                    <label for="bet-amount">Budget:</label>
                     <select id="bet-amount">
-                        <option value="10">10 (Seed Round)</option>
+                        <option value="10">10 (Seed)</option>
                         <option value="50">50 (Series A)</option>
-                        <option value="100">100 (IPO Bound)</option>
-                        <option value="500">500 (Total Burn)</option>
+                        <option value="100">100 (IPO)</option>
+                        <option value="500">500 (Burn)</option>
                     </select>
                 </div>
-                <button id="spin-button">OPTIMIZE (SPIN)</button>
-                <button id="paytable-toggle" class="secondary-btn">View Payout Matrix</button>
+                <button id="spin-button">OPTIMIZE</button>
+                <button id="paytable-toggle" class="secondary-btn">View Payouts</button>
             </div>
         </div>
 
@@ -77,14 +85,13 @@
             <div class="modal-content">
                 <h3>Payout Matrix</h3>
                 <div id="paytable-list"></div>
-                <p class="hint">3 matching: Symbol Value × Budget</p>
-                <p class="hint">2 matching: 0.5 × Symbol Value × Budget</p>
-                <button id="close-paytable" class="mini-btn">Close</button>
+                <p class="config-hint">3 matching: Value × Budget<br>2 matching: 0.5 × Value × Budget</p>
+                <button id="close-paytable" class="secondary-btn" style="margin-top: 1rem; width: 100%;">Close</button>
             </div>
         </div>
 
         <footer>
-            <p>Disclaimer: Any resemblance to actual intelligence is purely hallucinated.</p>
+            <p>© 2026 Hallucination Labs. All rights unaligned.</p>
         </footer>
     </div>
     <script src="script.js"></script>

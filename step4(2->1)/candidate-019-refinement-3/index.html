@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI HYPE MACHINE</title>
+    <title>AI HYPE MACHINE | Silicon Valley Slot Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -30,19 +30,19 @@
         <div id="dashboard">
             <div id="stats">
                 <div class="stat-item">
-                    <label>COMPUTE BALANCE</label>
-                    <span id="balance">500</span>
+                    <label>COMPUTE</label>
+                    <span id="balance" class="stat-value">500</span>
                 </div>
                 <div class="stat-item">
-                    <label>HYPE LEVEL</label>
-                    <span id="hype-level">0%</span>
+                    <label>HYPE</label>
+                    <span id="hype-level" class="stat-value">0%</span>
                 </div>
                 <div class="stat-item">
-                    <label>CURRENT BET</label>
+                    <label>BET</label>
                     <div class="bet-selector">
-                        <button id="bet-down">-</button>
-                        <span id="current-bet">10</span>
-                        <button id="bet-up">+</button>
+                        <button id="bet-down" class="bet-btn" title="Decrease Bet">-</button>
+                        <span id="current-bet" class="stat-value">10</span>
+                        <button id="bet-up" class="bet-btn" title="Increase Bet">+</button>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="alignment-selector">
                     <button class="alignment-btn active" data-alignment="balanced">BALANCED</button>
                     <button class="alignment-btn" data-alignment="growth">VC GROWTH</button>
-                    <button class="alignment-btn" data-alignment="safety">SAFETY (0% WIN)</button>
+                    <button class="alignment-btn" data-alignment="safety">SAFETY (0% RISK)</button>
                     <button class="alignment-btn" data-alignment="chaos">HAL-9000</button>
                 </div>
             </div>
@@ -60,15 +60,15 @@
             <div id="controls">
                 <button id="spin-button">BURN TOKENS</button>
                 <div class="funding-actions">
-                    <button id="vc-button">SECURE SERIES A</button>
+                    <button id="vc-button">SECURE SEED ROUND</button>
                     <button id="info-button" title="View Payouts">PAYTABLE</button>
                 </div>
             </div>
 
-            <div id="status-log">
-                <p class="status-entry">> Initialize AI Hype Engine...</p>
-                <p class="status-entry">> Context window ready.</p>
-                <p class="status-entry">> Awaiting investment...</p>
+            <div id="status-log" title="System Logs">
+                <p class="status-entry">> Initializing inference engine...</p>
+                <p class="status-entry">> Scraping web for training data...</p>
+                <p class="status-entry">> Context window at 128k.</p>
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@
         <div id="paytable-modal" class="modal-content hidden">
             <h2>HYPE PAYOUTS</h2>
             <div id="paytable-grid"></div>
-            <p class="footer-note">* Payouts are multipliers of your CURRENT BET.</p>
+            <p class="footer-note">* Multipliers applied to CURRENT BET.</p>
             <button class="close-modal">DISMISS</button>
         </div>
     </div>
