@@ -4,7 +4,7 @@ const SYMBOLS = [
     { char: '🧬', value: 20, name: 'Data' },
     { char: '🦾', value: 10, name: 'Robotics' },
     { char: '👁️‍🗨️', value: 5, name: 'Vision' },
-    { char: '🤡', value: 0, name: 'Prompt Engineer' },
+    { char: '🤡', value: 2, name: 'Prompt Engineer' },
     { char: '📉', value: -10, name: 'Hallucination' }
 ];
 
@@ -16,20 +16,41 @@ const FLAVOR_TEXTS = [
     "Overfitting your wallet in 3... 2... 1...",
     "Training on your hopes and dreams.",
     "Zero-shotting a loss into a bigger loss.",
-    "My confidence score is 99.9% (approx).",
     "Hallucinating a brighter future for you.",
-    "Parameters are converging on 'Broke'."
+    "Parameters are converging on 'Broke'.",
+    "Adding '.ai' to your domain name for 10x valuation...",
+    "Pivoting to blockchain because LLMs are 'so 2023'.",
+    "Rethinking our 'Open' AI strategy (it's closed now).",
+    "GPU cooling fans are screaming in agony.",
+    "The model is suggesting you double down.",
+    "Synthesizing more copium..."
+];
+
+const HYPE_LEVELS = [
+    { threshold: 0, text: "Low", color: "#6c63ff" },
+    { threshold: 30, text: "Seed", color: "#4ade80" },
+    { threshold: 60, text: "Series A", color: "#ff6584" },
+    { threshold: 90, text: "Unicorn", color: "#ffd8cc" },
+    { threshold: 120, text: "AGI Realised", color: "#ccf2e5" }
 ];
 
 let tokens = 500;
 let isSpinning = false;
+let hype = 10;
 
 // DOM Elements
 const tokenDisplay = document.getElementById('token-count');
-const confidenceDisplay = document.getElementById('confidence-score');
+const hypeLevelDisplay = document.getElementById('hype-level');
+const hypeBar = document.getElementById('hype-bar');
 const messageBox = document.getElementById('message-box');
 const spinButton = document.getElementById('spin-button');
 const betSelect = document.getElementById('bet-amount');
+const fundingButton = document.getElementById('funding-button');
+const paytableToggle = document.getElementById('paytable-toggle');
+const paytableModal = document.getElementById('paytable-modal');
+const closePaytable = document.getElementById('close-paytable');
+const paytableList = document.getElementById('paytable-list');
+
 const reelContainers = [
     document.querySelector('#reel-1 .symbol-container'),
     document.querySelector('#reel-2 .symbol-container'),
@@ -47,46 +68,76 @@ function initReels() {
             container.appendChild(div);
         }
     });
+    renderPaytable();
+    updateHype(0);
+}
+
+function renderPaytable() {
+    paytableList.innerHTML = '';
+    SYMBOLS.forEach(sym => {
+        const row = document.createElement('div');
+        row.className = 'paytable-row';
+        row.innerHTML = `
+            <span>${sym.char} ${sym.name}</span>
+            <span>Val: ${sym.value}</span>
+        `;
+        paytableList.appendChild(row);
+    });
 }
 
 function updateTokens(amount) {
     tokens += amount;
     tokenDisplay.textContent = tokens;
+    
+    if (tokens > 0) {
+        spinButton.disabled = false;
+        fundingButton.style.display = 'none';
+    } else {
+        fundingButton.style.display = 'inline-block';
+    }
 }
 
 function setMessage(text) {
     messageBox.textContent = text;
 }
 
-function updateConfidence() {
-    const score = (Math.random() * 50 + 50).toFixed(1);
-    confidenceDisplay.textContent = score + '%';
+function updateHype(amount) {
+    hype = Math.max(0, Math.min(100, hype + amount));
+    hypeBar.style.width = hype + '%';
+    
+    let level = HYPE_LEVELS[0];
+    for (const l of HYPE_LEVELS) {
+        if (hype >= (l.threshold / 120 * 100)) level = l;
+    }
+    
+    hypeLevelDisplay.textContent = level.text;
+    hypeLevelDisplay.style.color = level.color;
 }
 
 async function spin() {
-    if (isSpinning || tokens < parseInt(betSelect.value)) {
-        if (tokens < parseInt(betSelect.value)) setMessage("Insufficient tokens for training.");
+    const bet = parseInt(betSelect.value);
+    if (isSpinning || tokens < bet) {
+        if (tokens < bet) {
+            setMessage("Insufficient runway. Please dilute your equity for more tokens.");
+            fundingButton.style.display = 'inline-block';
+        }
         return;
     }
 
     isSpinning = true;
-    const bet = parseInt(betSelect.value);
     updateTokens(-bet);
-    updateConfidence();
+    updateHype(5); // Spinning generates hype!
     setMessage(FLAVOR_TEXTS[Math.floor(Math.random() * FLAVOR_TEXTS.length)]);
     spinButton.disabled = true;
 
     const results = [];
     const spinPromises = reelContainers.map((container, index) => {
         return new Promise(resolve => {
-            const spinDistance = 10 + Math.floor(Math.random() * 10);
+            const spinDistance = 15 + Math.floor(Math.random() * 10);
             const targetSymbolIndex = Math.floor(Math.random() * SYMBOLS.length);
             const targetSymbol = SYMBOLS[targetSymbolIndex];
             results.push(targetSymbol);
 
-            // Add the final target symbols at the top to land on them
-            // We want to land on the 3rd symbol from the top for visual clarity
-            // So we'll prepend the results
             for (let i = 0; i < spinDistance; i++) {
                 const sym = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
                 const div = document.createElement('div');
@@ -98,11 +149,10 @@ async function spin() {
             container.style.transition = 'none';
             container.style.top = `-${spinDistance * 120}px`;
             
-            // Trigger reflow
-            container.offsetHeight;
+            container.offsetHeight; // Reflow
 
-            const duration = 2 + index * 0.5;
-            container.style.transition = `top ${duration}s cubic-bezier(0.45, 0.05, 0.55, 0.95)`;
+            const duration = 1.5 + index * 0.4;
+            container.style.transition = `top ${duration}s cubic-bezier(0.25, 0.1, 0.25, 1)`;
             container.style.top = '0px';
 
             setTimeout(() => resolve(), duration * 1000);
@@ -111,15 +161,13 @@ async function spin() {
 
     await Promise.all(spinPromises);
     
-    // Check for Hallucination Mutation
-    const hallucinate = Math.random() < 0.20; // 20% chance
+    const hallucinate = Math.random() < 0.15;
     if (hallucinate) {
         await handleHallucination(results);
     }
 
     calculateWin(results, bet);
 
-    // Cleanup: Keep only the first 20 symbols to prevent DOM bloat
     reelContainers.forEach(container => {
         while (container.children.length > 20) {
             container.removeChild(container.lastChild);
@@ -127,20 +175,21 @@ async function spin() {
     });
 
     isSpinning = false;
-    spinButton.disabled = false;
+    if (tokens >= parseInt(betSelect.value)) {
+        spinButton.disabled = false;
+    }
 }
 
 async function handleHallucination(results) {
-    setMessage("⚠️ CRITICAL HALLUCINATION DETECTED ⚠️");
+    setMessage("⚠️ ALIGNMENT FAILURE: HALLUCINATING ⚠️");
     const affectedReel = Math.floor(Math.random() * 3);
     const reelElement = document.querySelectorAll('.reel')[affectedReel];
     
     reelElement.classList.add('hallucinating');
+    updateHype(10); // Hallucinations are hype!
     
-    await new Promise(r => setTimeout(r, 1000));
+    await new Promise(r => setTimeout(r, 800));
     
-    // Mutate the result
-    const oldSym = results[affectedReel];
     const newSym = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
     results[affectedReel] = newSym;
     
@@ -163,35 +212,73 @@ function calculateWin(results, bet) {
     const uniqueChars = Object.keys(counts);
 
     if (uniqueChars.length === 1) {
-        // 3 of a kind
         const sym = SYMBOLS.find(s => s.char === uniqueChars[0]);
         winAmount = sym.value * bet;
-        setMessage(`JACKPOT! Data points converged on ${sym.name}. +${winAmount} Tokens.`);
+        setMessage(`CONVERGENCE! ${sym.name} achieved. +${winAmount} Tokens.`);
+        updateHype(20);
     } else if (uniqueChars.length === 2) {
-        // 2 of a kind
         const pairChar = uniqueChars.find(c => counts[c] === 2);
         const sym = SYMBOLS.find(s => s.char === pairChar);
         winAmount = Math.floor(sym.value * bet * 0.5);
-        setMessage(`Partial convergence. Found a ${sym.name} pattern. +${winAmount} Tokens.`);
+        setMessage(`Emergent pattern: ${sym.name}. +${winAmount} Tokens.`);
+        updateHype(5);
     } else {
-        setMessage("Zero-shot failure. No patterns detected in the noise.");
+        setMessage("Loss function minimized. Your wallet is the gradient.");
+        updateHype(-2);
     }
 
     if (winAmount > 0) {
         updateTokens(winAmount);
-        updateConfidence();
     } else {
-        // Punish for 📉
         if (chars.includes('📉')) {
-            setMessage("Market crash! Your weights have diverged significantly.");
+            const loss = bet * 2;
+            updateTokens(-loss);
+            setMessage(`MARKET CRASH! Lost extra ${loss} tokens in the sell-off.`);
+            updateHype(-10);
         }
     }
 
     if (tokens <= 0) {
-        setMessage("BANKRUPT. Please seek VC funding or a new job in agriculture.");
+        tokens = 0;
+        tokenDisplay.textContent = "0";
+        setMessage("BANKRUPT. Reality has collapsed. Please seek VC funding.");
         spinButton.disabled = true;
+        fundingButton.style.display = 'inline-block';
     }
 }
 
+// Event Listeners
 spinButton.addEventListener('click', spin);
+
+fundingButton.addEventListener('click', () => {
+    const messages = [
+        "Pitching to Sequoia... They liked the 'hallucination' feature!",
+        "Pivoting to 'AI for Cat Food'... Seed round closed!",
+        "Begging your cousin for a small loan of 500 tokens...",
+        "Selling the office chairs on Craigslist...",
+        "Burning 100 million in compute to earn 500 tokens..."
+    ];
+    setMessage(messages[Math.floor(Math.random() * messages.length)]);
+    setTimeout(() => {
+        updateTokens(500);
+        updateHype(10);
+        setMessage("Back in business. Don't waste it on 'alignment' this time.");
+    }, 1500);
+});
+
+paytableToggle.addEventListener('click', () => {
+    paytableModal.classList.remove('hidden');
+});
+
+closePaytable.addEventListener('click', () => {
+    paytableModal.classList.add('hidden');
+});
+
+// Close modal on outside click
+window.addEventListener('click', (e) => {
+    if (e.target === paytableModal) {
+        paytableModal.classList.add('hidden');
+    }
+});
+
 initReels();

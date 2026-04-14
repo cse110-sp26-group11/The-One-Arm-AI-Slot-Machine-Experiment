@@ -17,10 +17,14 @@
             <div class="status-item">
                 <span class="label">Training Tokens:</span>
                 <span id="token-count" class="value">500</span>
+                <button id="funding-button" class="mini-btn">Get VC Funding</button>
             </div>
             <div class="status-item">
-                <span class="label">Confidence Score:</span>
-                <span id="confidence-score" class="value">99.9%</span>
+                <span class="label">Hype Level:</span>
+                <span id="hype-level" class="value">Low</span>
+                <div class="hype-bar-container">
+                    <div id="hype-bar" class="hype-bar"></div>
+                </div>
             </div>
         </div>
 
@@ -43,14 +47,26 @@
 
             <div class="controls">
                 <div class="bet-control">
-                    <label for="bet-amount">Bet Size:</label>
+                    <label for="bet-amount">Compute Budget:</label>
                     <select id="bet-amount">
-                        <option value="10">10 Tokens</option>
-                        <option value="50">50 Tokens</option>
-                        <option value="100">100 Tokens</option>
+                        <option value="10">10 (Seed Round)</option>
+                        <option value="50">50 (Series A)</option>
+                        <option value="100">100 (IPO Bound)</option>
+                        <option value="500">500 (Total Burn)</option>
                     </select>
                 </div>
                 <button id="spin-button">OPTIMIZE (SPIN)</button>
+                <button id="paytable-toggle" class="secondary-btn">View Payout Matrix</button>
+            </div>
+        </div>
+
+        <div id="paytable-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Payout Matrix</h3>
+                <div id="paytable-list"></div>
+                <p class="hint">3 matching: Symbol Value × Budget</p>
+                <p class="hint">2 matching: 0.5 × Symbol Value × Budget</p>
+                <button id="close-paytable" class="mini-btn">Close</button>
             </div>
         </div>
 
