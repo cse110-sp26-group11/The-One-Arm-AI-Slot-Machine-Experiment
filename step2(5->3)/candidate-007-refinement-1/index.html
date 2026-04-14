@@ -8,16 +8,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>AI-pocalypse Slot Machine</h1>
-        <p class="subtitle">"Training your future, one token at a time."</p>
+        <header>
+            <h1>AI-pocalypse Slot Machine</h1>
+            <p class="subtitle">"Burning VC cash to train models that don't work."</p>
+        </header>
         
         <div class="stats">
             <div class="stat-box">
-                <span class="label">Tokens</span>
+                <span class="label">Compute Credits (Tokens)</span>
                 <span id="token-count">1000</span>
             </div>
             <div class="stat-box">
-                <span class="label">Total Loss</span>
+                <span class="label">Investor Burn Rate</span>
                 <span id="total-loss">0</span>
             </div>
         </div>
@@ -29,16 +31,37 @@
         </div>
 
         <div class="controls">
-            <button id="spin-btn">Spin (50 Tokens)</button>
-            <button id="reset-btn">Reset Model</button>
+            <div class="bet-selection">
+                <label for="bet-amount">Compute Intensity:</label>
+                <select id="bet-amount">
+                    <option value="10">Low (10)</option>
+                    <option value="50" selected>Standard (50)</option>
+                    <option value="100">High (100)</option>
+                    <option value="500">Overfit (500)</option>
+                </select>
+            </div>
+            <div class="action-buttons">
+                <button id="spin-btn">Run Training Epoch</button>
+                <button id="add-tokens-btn">Request VC Funding</button>
+                <button id="reset-btn">Pivot Startup</button>
+            </div>
         </div>
 
         <div class="status" id="status-msg">
-            Press "Spin" to start training the AGI.
+            Initialize the weights to begin your billionaire journey.
+        </div>
+
+        <div class="paytable">
+            <h3>Hallucination Table (Payouts)</h3>
+            <ul>
+                <li>3x Same Symbol: <strong>20x ROI</strong> (AGI Achieved)</li>
+                <li>2x Same Symbol: <strong>2x ROI</strong> (Pivoting Successfully)</li>
+                <li>3x 💰: <strong>50x ROI</strong> (IPO! Sell everything!)</li>
+            </ul>
         </div>
 
         <div class="info-footer">
-            <p>Every spin improves our proprietary hallucination engine.</p>
+            <p>Warning: Past performance does not guarantee future hallucinations. Our LLM is just 1000 monkeys with typewriters in a trench coat.</p>
         </div>
     </div>
     <script src="app.js"></script>
