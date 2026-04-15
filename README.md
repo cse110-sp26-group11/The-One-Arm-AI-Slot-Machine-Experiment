@@ -82,7 +82,7 @@ For every run, capture:
 - Partial = Loads but has broken functionality  
 - No = Does not load or crashes   
 
-**Format:** Use `data-capture-template.csv` in the root directory.
+**Format:** Use `data-capture.csv` in the root directory.
 
 ---
 
@@ -92,7 +92,7 @@ For every run, capture:
 The-One-Arm-AI-Slot-Machine_Experiment/
 ├── README.md
 ├── RUBRIC.md
-├── data-capture-template.csv
+├── data-capture.csv
 ├── prompts/
 │   ├── original-prompt.txt
 ├── step1/ (50 baseline candidates)
@@ -103,10 +103,9 @@ The-One-Arm-AI-Slot-Machine_Experiment/
 │   │   └── metrics.csv
 │   ├── candidate-002/
 │   └── ...
-├── step1-results.md
-├── step2/ (refined candidates)
-├── step3/, step4/, step5/ (further refinements)
-├── final-report.md
+├── step2/ (refined candidates) & STEP1-RESULTS.md
+├── step3/, step4/ (further refinements)
+├── FINAL-REPORT.md
 └── presentation/ (slides + video)
 ```
 

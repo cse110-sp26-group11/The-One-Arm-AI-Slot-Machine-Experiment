@@ -1,6 +1,6 @@
 These 5 candidates were chosen because they scored the highest on our rubric.
 
-They all mostly work as desired, with engaging UI's, as well as at least some discernible humour relevant to the task.
+They all mostly work as desired, with relatively engaging UI's, as well as at least some discernible humour relevant to the task.
 
 Some team members faced more variation in results than others, including one instance where the agent veered off the rails and tried to use Vite instead of vanilla JS, but completely failing to write any code.
 

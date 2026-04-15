@@ -1,6 +1,6 @@
 These two candidates were chosen because one of the candidates broke after this refinement step.
 
-The first canddiate already had audio and the sound effects are continued. The second candidate did add audio like requested but not smoothly. 
+The first candiate (019) already had audio and the sound effects are continued. The second candidate(037) did add audio like requested but not smoothly. 
 
 They both added a mechanism to adjust the odds of the roll however we're not sure if it is actually affecting anything or not.
 
